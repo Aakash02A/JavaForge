@@ -17,12 +17,47 @@
 
 **Java Forge** is a structured learning path containing **65 projects** spread across **10 levels**. It starts with Core Java fundamentals and progresses all the way through advanced backend concepts, security, microservices, and DevOps. This repository serves as a practical guide for developers looking to master the Java ecosystem through hands-on project building.
 
+## ✨ Features
+
+- **Structured Learning Path:** 10 distinct levels, starting from Core Java up to DevOps.
+- **Progressive Difficulty:** Projects scale in complexity to systematically challenge your skills.
+- **Modern Tech Stack:** Utilizes Java 17+, Spring Boot 3, Spring Data JPA, Docker, Redis, and more.
+- **Real-World Scenarios:** Includes resume-worthy projects like E-Commerce backends, payment services, and Microservices architectures.
+- **Best Practices:** Emphasizes clean code, SOLID principles, design patterns, and layered architecture.
+
+## 🛠️ Prerequisites
+
+To run these projects locally, ensure you have the following installed:
+
+- **Java Development Kit (JDK) 17 or higher**
+- **Maven** or **Gradle** (varies per project)
+- **Git**
+- **MySQL** or **PostgreSQL** (for database projects)
+- **Docker** and **Docker Compose** (for Level 9+ projects)
+- An IDE like **IntelliJ IDEA**, **Eclipse**, or **VS Code**
+
+## 🚀 Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Aakash02A/Java-Forge.git
+   ```
+
+2. **Navigate to a specific project directory:**
+   ```bash
+   cd Java-Forge/01-Core-Java/01-Student-Management
+   ```
+
+3. **Run the project:**
+   - **Core Java projects:** Compile and run the `Main.java` file in your IDE.
+   - **Spring Boot projects:** Run `mvn spring-boot:run` or `./gradlew bootRun` in the terminal.
+
 ## 🗂️ Project Overview
 
 | No | Level | Project | Tech Stack / Difficulty | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| 01 | 1 - Core Java | Student Management | Classes, Objects | ✅ |
-| 02 | 1 - Core Java | Library Management | OOP | ✅ |
+| 01 | 1 - Core Java | Student Management | Classes, Objects | ⏳ |
+| 02 | 1 - Core Java | Library Management | OOP | ⏳ |
 | 03 | 1 - Core Java | Bank Account Simulator | Inheritance | ⏳ |
 | 04 | 1 - Core Java | Expense Tracker | Collections | ⏳ |
 | 05 | 1 - Core Java | Employee Payroll | Interfaces | ⏳ |
@@ -86,3 +121,17 @@
 | 63 | 10 - Resume Projects | Personal Finance Manager | ⭐⭐⭐⭐ | ⏳ |
 | 64 | 10 - Resume Projects | AI Chat Backend | ⭐⭐⭐⭐ | ⏳ |
 | 65 | 10 - Resume Projects | Code Judge Backend | ⭐⭐⭐⭐⭐ | ⏳ |
+
+## 🤝 Contributing
+
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the repository
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
