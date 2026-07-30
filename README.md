@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="doc/banner.png" alt="Java Forge Banner" width="100%">
+  <img src="src/banner.png" alt="Java Forge Banner" width="100%">
   
   # Java Forge
   
@@ -34,7 +34,7 @@ To run these projects locally, ensure you have the following installed:
 - **Git**
 - **MySQL** or **PostgreSQL** (for database projects)
 - **Docker** and **Docker Compose** (for Level 9+ projects)
-- An IDE like **IntelliJ IDEA**, **Eclipse**, or **VS Code**
+- **IntelliJ IDEA** (recommended IDE for all projects)
 
 ## 🚀 Getting Started
 
@@ -45,7 +45,7 @@ To run these projects locally, ensure you have the following installed:
 
 2. **Navigate to a specific project directory:**
    ```bash
-   cd Java-Forge/01-Core-Java/01-Student-Management
+   cd Java-Forge/<Project name>
    ```
 
 3. **Run the project:**
