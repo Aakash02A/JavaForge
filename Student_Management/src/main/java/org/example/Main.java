@@ -1,17 +1,40 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Student {
+    private int id;
+    private String name;
+    private int age;
+    private String gender;
+    private String department;
+    private String course;
+    private double marks;
+    private String email;
+    private String phone;
+
+    Student(int id,String name, int age, String gender, String department, String course, double marks, String email, String phone){
+        this.id =id;
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+        this.department=department;
+        this.course=course;
+        this.marks=marks;
+        this.email=email;
+        this.phone=phone;
+    }
+
+}
+
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        Student s = new Student();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+
     }
 }
