@@ -18,4 +18,14 @@ public class Student {
         this.email=email;
         this.phone=phone;
     }
+    @Override
+    public String toString() {
+        return "ID: " + id +
+                ", Name: " + name +
+                ", Age: " + age +
+                ", Gender: " + gender +
+                ", Department: " + department +
+                ", Email: " + email +
+                ", Phone: " + phone;
+    }
 }

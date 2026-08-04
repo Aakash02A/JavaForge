@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +8,7 @@ public class Main {
 
         boolean proceed = true;
 
+        StudentManagement sm = new StudentManagement();
         while (proceed) {
 
             System.out.println("\n===== Student Management System =====");
@@ -21,12 +21,15 @@ public class Main {
             System.out.print("Enter Choice: ");
 
             int choice = sc.nextInt();
-            StudentManagement sm = new StudentManagement();
 
             switch (choice) {
                 case 1:
                     System.out.println("===== Enter Student Data =====");
                     sm.addStudent();
+                    break;
+                case 2:
+                    System.out.println("===== View Student Data =====");
+                    sm.viewStudent();
                     break;
                 case 6:
                     System.out.println("Exiting...");

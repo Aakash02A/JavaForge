@@ -31,6 +31,15 @@ public class StudentManagement {
         Student s = new Student(id, name, age, gender, department, email, phone);
         students.add(s);
         System.out.println("Student added successfully...");
-
     }
+    public void viewStudent(){
+
+        System.out.println("Students in list: " + students.size());
+
+        for(Student students : students){
+            System.out.println(students.toString());
+        }
+        System.out.println("Student listed successfully...");
+    }
+
 }
