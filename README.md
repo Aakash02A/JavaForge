@@ -1,14 +1,14 @@
 <div align="center">
-  <img src="src/banner.png" alt="Java Forge Banner" width="100%">
-  
-  # Java Forge
-  
-  **A comprehensive collection of Java projects from Core Java to Microservices and DevOps.**
-  
-  [![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](#)
-  [![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](#)
-  [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](#)
-  [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](#)
+  <img src="docs/assets/banner.png" alt="Java Forge Banner" width="100%">
+
+# Java Forge
+
+**A comprehensive collection of Java projects from Core Java to Microservices and DevOps.**
+
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](#)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](#)
+[![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](#)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](#)
 </div>
 
 ---
@@ -35,6 +35,7 @@ To run these projects locally, ensure you have the following installed:
 - **MySQL** or **PostgreSQL** (for database projects)
 - **Docker** and **Docker Compose** (for Level 9+ projects)
 - **IntelliJ IDEA** (recommended IDE for all projects)
+- **VS Code** (recommended for frontend projects)
 
 ## 🚀 Getting Started
 
@@ -45,20 +46,20 @@ To run these projects locally, ensure you have the following installed:
 
 2. **Navigate to a specific project directory:**
    ```bash
-   cd Java-Forge/<Project name>
+   cd Java-Forge/01-Student-Management
    ```
 
 3. **Run the project:**
-   - **Core Java projects:** Compile and run the `Main.java` file in your IDE.
-   - **Spring Boot projects:** Run `mvn spring-boot:run` or `./gradlew bootRun` in the terminal.
+    - **Core Java projects:** Compile and run the `Main.java` file in your IDE.
+    - **Spring Boot projects:** Run `mvn spring-boot:run` or `./gradlew bootRun` in the terminal.
 
 ## 🗂️ Project Overview
 
 | No | Level | Project | Tech Stack / Difficulty | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| 01 | 1 - Core Java | Student Management | Classes, Objects | ⏳ |
+| 01 | 1 - Core Java | [Student Management](01-Student-Management/) | Classes, Objects | ✅ |
 | 02 | 1 - Core Java | Library Management | OOP | ⏳ |
-| 03 | 1 - Core Java | Bank Account Simulator | Inheritance | ⏳ |
+| 03 | 1 - Core Java | [Bank Account Simulator](03-Bank-Account-Simulator/) | Inheritance | ⏳ |
 | 04 | 1 - Core Java | Expense Tracker | Collections | ⏳ |
 | 05 | 1 - Core Java | Employee Payroll | Interfaces | ⏳ |
 | 06 | 1 - Core Java | Quiz Application | File Handling | ⏳ |
