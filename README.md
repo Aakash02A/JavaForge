@@ -58,7 +58,7 @@ To run these projects locally, ensure you have the following installed:
 | No | Level | Project | Tech Stack / Difficulty | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | 01 | 1 - Core Java | [Student Management](01-Student-Management/) | Classes, Objects | ✅ |
-| 02 | 1 - Core Java | Library Management | OOP | ⏳ |
+| 02 | 1 - Core Java | [Library Management](02-Library-Management/) | OOP | ✅ |
 | 03 | 1 - Core Java | [Bank Account Simulator](03-Bank-Account-Simulator/) | Inheritance | ⏳ |
 | 04 | 1 - Core Java | Expense Tracker | Collections | ⏳ |
 | 05 | 1 - Core Java | Employee Payroll | Interfaces | ⏳ |
