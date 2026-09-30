@@ -70,7 +70,7 @@ To run these projects locally, ensure you have the following installed:
 | 11 | 2 - Java Intermediate | [Log Parser](11-Log-Parser/) | File Processing | ✅ |
 | 12 | 2 - Java Intermediate | [Student Ranking System](12-Student-Ranking-System/) | Comparator | ✅ |
 | 13 | 2 - Java Intermediate | [Cache Simulator](13-Cache-Simulator/) | LRU Cache | ✅ |
-| 14 | 2 - Java Intermediate | Producer Consumer | Threads | ⏳ |
+| 14 | 2 - Java Intermediate | [Producer Consumer](14-Producer-Consumer/) | Threads | ✅ |
 | 15 | 2 - Java Intermediate | Chat Server | Sockets | ⏳ |
 | 16 | 2 - Java Intermediate | Web Crawler | Concurrency | ⏳ |
 | 17 | 3 - JDBC + SQL | Employee CRUD | JDBC | ⏳ |
