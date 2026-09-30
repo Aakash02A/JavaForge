@@ -67,7 +67,7 @@ To run these projects locally, ensure you have the following installed:
 | 08 | 1 - Core Java | [ATM Simulator](08-ATM-Simulator/) | Exception Handling | ✅ |
 | 09 | 2 - Java Intermediate | [Employee Analytics](09-Employee-Analytics/) | Streams | ✅ |
 | 10 | 2 - Java Intermediate | [Inventory Manager](10-Inventory-Manager/) | Generics | ✅ |
-| 11 | 2 - Java Intermediate | Log Parser | File Processing | ⏳ |
+| 11 | 2 - Java Intermediate | [Log Parser](11-Log-Parser/) | File Processing | ✅ |
 | 12 | 2 - Java Intermediate | Student Ranking System | Comparator | ⏳ |
 | 13 | 2 - Java Intermediate | Cache Simulator | LRU Cache | ⏳ |
 | 14 | 2 - Java Intermediate | Producer Consumer | Threads | ⏳ |
