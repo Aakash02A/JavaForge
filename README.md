@@ -64,7 +64,7 @@ To run these projects locally, ensure you have the following installed:
 | 05 | 1 - Core Java | [Employee Payroll](05-Employee-Payroll/) | Interfaces | ✅ |
 | 06 | 1 - Core Java | [Quiz Application](06-Quiz-Application/) | File Handling | ✅ |
 | 07 | 1 - Core Java | [Contact Book](07-Contact-Book/) | HashMap | ✅ |
-| 08 | 1 - Core Java | ATM Simulator | Exception Handling | ⏳ |
+| 08 | 1 - Core Java | [ATM Simulator](08-ATM-Simulator/) | Exception Handling | ✅ |
 | 09 | 2 - Java Intermediate | Employee Analytics | Streams | ⏳ |
 | 10 | 2 - Java Intermediate | Inventory Manager | Generics | ⏳ |
 | 11 | 2 - Java Intermediate | Log Parser | File Processing | ⏳ |
