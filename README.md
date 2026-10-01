@@ -72,7 +72,7 @@ To run these projects locally, ensure you have the following installed:
 | 13 | 2 - Java Intermediate | [Cache Simulator](13-Cache-Simulator/) | LRU Cache | ✅ |
 | 14 | 2 - Java Intermediate | [Producer Consumer](14-Producer-Consumer/) | Threads | ✅ |
 | 15 | 2 - Java Intermediate | [Chat Server](15-Chat-Server/) | Sockets | ✅ |
-| 16 | 2 - Java Intermediate | Web Crawler | Concurrency | ⏳ |
+| 16 | 2 - Java Intermediate | [URL Shortener](16-URL-Shortener/) | Hashing | ✅ |
 | 17 | 3 - JDBC + SQL | Employee CRUD | JDBC | ⏳ |
 | 18 | 3 - JDBC + SQL | Banking System | Transactions | ⏳ |
 | 19 | 3 - JDBC + SQL | Hospital Management | SQL | ⏳ |
