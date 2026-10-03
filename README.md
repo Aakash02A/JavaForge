@@ -37,6 +37,10 @@ To run these projects locally, ensure you have the following installed:
 - **IntelliJ IDEA** (recommended IDE for all projects)
 - **VS Code** (recommended for frontend projects)
 
+### Local database credentials
+
+Never commit passwords, API keys, or personal credentials. Database projects that use MySQL provide a `database/database.properties.example`; copy it to `database/database.properties` and put credentials only in the local copy. Root `.gitignore` excludes local credentials files and `.env` files. If a credential was accidentally committed or shared, rotate it; adding it to `.gitignore` does not remove it from Git history.
+
 ## 🚀 Getting Started
 
 1. **Clone the repository:**

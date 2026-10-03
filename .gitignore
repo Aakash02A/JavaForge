@@ -35,6 +35,21 @@ out/
 # VS Code
 .vscode/
 
+# Local secrets and database credentials
+.env
+.env.*
+!.env.example
+**/database.properties
+**/credentials.properties
+**/secrets.properties
+**/*.local.properties
+**/application-local.properties
+**/application-local.yml
+**/application-local.yaml
+**/credentials.json
+**/secrets.json
+**/service-account*.json
+
 # OS generated files
 Thumbs.db
 .DS_Store

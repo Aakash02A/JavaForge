@@ -33,17 +33,15 @@ Storing repeated category or supplier information with every product causes dupl
 
 # MySQL Setup
 
-Run `database/schema.sql` in MySQL to create the `inventory_database` schema and its normalized tables. Use the following connection setup:
+Run `database/schema.sql` in MySQL to create the `inventory_database` schema and its normalized tables. Copy `database/database.properties.example` to `database/database.properties` and set your local MySQL username and password in the copied file; Git ignores the actual credentials file. Create the DAO with:
 
 ```java
-InventoryDAO dao = new InventoryDAO(
-        "jdbc:mysql://localhost:3306/inventory_database",
-        "your_mysql_user",
-        "your_mysql_password"
-);
+InventoryDAO dao = InventoryDAO.fromLocalConfig();
 ```
 
 The schema script includes example insert and inventory-report SQL queries. The inventory report joins products, categories, suppliers, and stock movements; quantity on hand is calculated from the movement ledger rather than stored redundantly.
+
+Never put real database credentials in source code or commit them to the repository.
 
 # Project Details
 

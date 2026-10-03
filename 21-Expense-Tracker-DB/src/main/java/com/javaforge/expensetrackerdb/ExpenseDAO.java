@@ -7,8 +7,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class ExpenseDAO {
     private final String jdbcUrl;
@@ -19,6 +24,23 @@ public class ExpenseDAO {
         this.jdbcUrl = jdbcUrl;
         this.username = username;
         this.password = password;
+    }
+
+    public static ExpenseDAO fromLocalConfig() {
+        Path configPath = Path.of("database", "database.properties");
+        Properties properties = new Properties();
+        try (InputStream input = Files.newInputStream(configPath)) {
+            properties.load(input);
+        } catch (IOException e) {
+            throw new IllegalStateException(
+                    "Unable to read " + configPath + "; copy database.properties.example and add local credentials", e);
+        }
+
+        return new ExpenseDAO(
+                requiredProperty(properties, "db.url"),
+                requiredProperty(properties, "db.username"),
+                requiredProperty(properties, "db.password")
+        );
     }
 
     private Connection getConnection() throws SQLException {
@@ -146,5 +168,13 @@ public class ExpenseDAO {
         if (expense.getExpenseDate() == null) {
             throw new IllegalArgumentException("Expense date must not be null");
         }
+    }
+
+    private static String requiredProperty(Properties properties, String name) {
+        String value = properties.getProperty(name);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing required database setting: " + name);
+        }
+        return value.trim();
     }
 }

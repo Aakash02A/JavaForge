@@ -33,17 +33,14 @@ Expense data should persist across application runs and be easy to maintain. Thi
 # MySQL Setup
 
 1. Run `database/schema.sql` using the MySQL client to create the database and `expenses` table.
-2. Connect the DAO to the local MySQL database:
+2. Copy `database/database.properties.example` to `database/database.properties`, then set your local MySQL username and password in the copied file. The actual `.properties` file is ignored by Git.
+3. Create the DAO from the local configuration:
 
 ```java
-ExpenseDAO dao = new ExpenseDAO(
-        "jdbc:mysql://localhost:3306/expense_tracker",
-        "your_mysql_user",
-        "your_mysql_password"
-);
+ExpenseDAO dao = ExpenseDAO.fromLocalConfig();
 ```
 
-The JDBC DAO uses prepared statements for its CRUD operations. Example setup and `INSERT`, `SELECT`, `UPDATE`, and `DELETE` queries are included in `database/schema.sql`.
+The JDBC DAO uses prepared statements for its CRUD operations. Example setup and `INSERT`, `SELECT`, `UPDATE`, and `DELETE` queries are included in `database/schema.sql`. Do not commit real credentials or paste them into source code.
 
 # Project Details
 
