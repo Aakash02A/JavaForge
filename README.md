@@ -75,7 +75,7 @@ To run these projects locally, ensure you have the following installed:
 | 16 | 2 - Java Intermediate | [URL Shortener](16-URL-Shortener/) | Hashing | ✅ |
 | 17 | 3 - JDBC + SQL | [Employee CRUD](17-Employee-CRUD/) | JDBC | ✅ |
 | 18 | 3 - JDBC + SQL | [Banking System](18-Banking-System/) | Transactions | ✅ |
-| 19 | 3 - JDBC + SQL | Hospital Management | SQL | ⏳ |
+| 19 | 3 - JDBC + SQL | [Hospital Management](19-Hospital-Management/) | SQL | ✅ |
 | 20 | 3 - JDBC + SQL | Railway Reservation | Joins | ⏳ |
 | 21 | 3 - JDBC + SQL | Expense Tracker DB | CRUD | ⏳ |
 | 22 | 3 - JDBC + SQL | Inventory Database | Normalization | ⏳ |
