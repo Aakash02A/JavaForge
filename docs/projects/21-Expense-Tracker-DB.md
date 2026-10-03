@@ -25,9 +25,25 @@ Expense data should persist across application runs and be easy to maintain. Thi
 # Tech Stack
 
 - Java (Core Java, JDBC)
-- Relational Database (H2 Database used for tests, swappable with MySQL/PostgreSQL)
+- MySQL 8.0+ with MySQL Connector/J
+- H2 Database for isolated automated tests
 - JUnit 5 for Testing
 - DAO Pattern / SQL CRUD
+
+# MySQL Setup
+
+1. Run `database/schema.sql` using the MySQL client to create the database and `expenses` table.
+2. Connect the DAO to the local MySQL database:
+
+```java
+ExpenseDAO dao = new ExpenseDAO(
+        "jdbc:mysql://localhost:3306/expense_tracker",
+        "your_mysql_user",
+        "your_mysql_password"
+);
+```
+
+The JDBC DAO uses prepared statements for its CRUD operations. Example setup and `INSERT`, `SELECT`, `UPDATE`, and `DELETE` queries are included in `database/schema.sql`.
 
 # Project Details
 
