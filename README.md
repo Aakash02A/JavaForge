@@ -78,7 +78,7 @@ To run these projects locally, ensure you have the following installed:
 | 19 | 3 - JDBC + SQL | [Hospital Management](19-Hospital-Management/) | SQL | ✅ |
 | 20 | 3 - JDBC + SQL | [Railway Reservation](20-Railway-Reservation/) | Joins | ✅ |
 | 21 | 3 - JDBC + SQL | [Expense Tracker DB](21-Expense-Tracker-DB/) | CRUD | ✅ |
-| 22 | 3 - JDBC + SQL | Inventory Database | Normalization | ⏳ |
+| 22 | 3 - JDBC + SQL | [Inventory Database](22-Inventory-Database/) | Normalization | ✅ |
 | 23 | 4 - Spring Boot Basics | Todo REST API | REST | ⏳ |
 | 24 | 4 - Spring Boot Basics | Notes API | CRUD | ⏳ |
 | 25 | 4 - Spring Boot Basics | Student API | Validation | ⏳ |
