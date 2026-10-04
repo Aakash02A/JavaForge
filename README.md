@@ -83,7 +83,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 20 | 3 - JDBC + SQL | [Railway Reservation](20-Railway-Reservation/) | Joins | ✅ |
 | 21 | 3 - JDBC + SQL | [Expense Tracker DB](21-Expense-Tracker-DB/) | CRUD | ✅ |
 | 22 | 3 - JDBC + SQL | [Inventory Database](22-Inventory-Database/) | Normalization | ✅ |
-| 23 | 4 - Spring Boot Basics | Todo REST API | REST | ⏳ |
+| 23 | 4 - Spring Boot Basics | [Todo REST API](23-Todo-REST-API/) | REST | ✅ |
 | 24 | 4 - Spring Boot Basics | Notes API | CRUD | ⏳ |
 | 25 | 4 - Spring Boot Basics | Student API | Validation | ⏳ |
 | 26 | 4 - Spring Boot Basics | Book Store API | Layered Architecture | ⏳ |
