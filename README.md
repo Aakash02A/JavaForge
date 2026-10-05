@@ -89,7 +89,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 26 | 4 - Spring Boot Basics | [Book Store API](26-Book-Store-API/) | Layered Architecture | ✅ |
 | 27 | 4 - Spring Boot Basics | [Movie Review API](27-Movie-Review-API/) | Pagination | ✅ |
 | 28 | 4 - Spring Boot Basics | [Weather API](28-Weather-API/) | External APIs | ✅ |
-| 29 | 5 - Spring Data JPA | Employee Management | JPA | ⏳ |
+| 29 | 5 - Spring Data JPA | [Employee Management](29-Employee-Management/) | JPA | ✅ |
 | 30 | 5 - Spring Data JPA | Blog API | Relationships | ⏳ |
 | 31 | 5 - Spring Data JPA | Library API | One-To-Many | ⏳ |
 | 32 | 5 - Spring Data JPA | Hospital API | Many-To-Many | ⏳ |
