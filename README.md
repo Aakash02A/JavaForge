@@ -86,7 +86,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 23 | 4 - Spring Boot Basics | [Todo REST API](23-Todo-REST-API/) | REST | ✅ |
 | 24 | 4 - Spring Boot Basics | [Notes API](24-Notes-API/) | CRUD | ✅ |
 | 25 | 4 - Spring Boot Basics | [Student API](25-Student-API/) | Validation | ✅ |
-| 26 | 4 - Spring Boot Basics | Book Store API | Layered Architecture | ⏳ |
+| 26 | 4 - Spring Boot Basics | [Book Store API](26-Book-Store-API/) | Layered Architecture | ✅ |
 | 27 | 4 - Spring Boot Basics | Movie Review API | Pagination | ⏳ |
 | 28 | 4 - Spring Boot Basics | Weather API | External APIs | ⏳ |
 | 29 | 5 - Spring Data JPA | Employee Management | JPA | ⏳ |
