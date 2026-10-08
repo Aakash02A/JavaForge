@@ -96,7 +96,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 33 | 5 - Spring Data JPA | [School Management](33-School-Management/) | Hibernate | ✅ |
 | 34 | 6 - Security | [JWT Authentication](34-JWT-Authentication/) | JWT | ✅ |
 | 35 | 6 - Security | [Role Based Access](35-Role-Based-Access/) | RBAC | ✅ |
-| 36 | 6 - Security | OAuth Login | OAuth2 | ⏳ |
+| 36 | 6 - Security | [OAuth Login](36-OAuth-Login/) | OAuth2 | ✅ |
 | 37 | 6 - Security | Refresh Token | Security | ⏳ |
 | 38 | 7 - Advanced Backend | URL Shortener | Hashing | ⏳ |
 | 39 | 7 - Advanced Backend | File Storage API | AWS S3 | ⏳ |
