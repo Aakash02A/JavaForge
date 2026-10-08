@@ -1,6 +1,7 @@
 package com.javaforge.bank.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class BankAccount {
@@ -10,8 +11,17 @@ public abstract class BankAccount {
     private List<Transaction> transactions;
 
     public BankAccount(String accountNumber, String accountHolderName, double initialDeposit) {
+        if (accountNumber == null || accountNumber.isBlank()) {
+            throw new IllegalArgumentException("Account number is required.");
+        }
+        if (accountHolderName == null || accountHolderName.isBlank()) {
+            throw new IllegalArgumentException("Account holder name is required.");
+        }
+        if (initialDeposit < 0) {
+            throw new IllegalArgumentException("Initial deposit cannot be negative.");
+        }
         this.accountNumber = accountNumber;
-        this.accountHolderName = accountHolderName;
+        this.accountHolderName = accountHolderName.trim();
         this.balance = initialDeposit;
         this.transactions = new ArrayList<>();
         if (initialDeposit > 0) {
@@ -28,6 +38,9 @@ public abstract class BankAccount {
     }
 
     public void setAccountHolderName(String accountHolderName) {
+        if (accountHolderName == null || accountHolderName.isBlank()) {
+            throw new IllegalArgumentException("Account holder name is required.");
+        }
         this.accountHolderName = accountHolderName;
     }
 
@@ -36,7 +49,7 @@ public abstract class BankAccount {
     }
 
     public List<Transaction> getTransactions() {
-        return transactions;
+        return Collections.unmodifiableList(transactions);
     }
 
     public void addTransaction(String type, double amount) {

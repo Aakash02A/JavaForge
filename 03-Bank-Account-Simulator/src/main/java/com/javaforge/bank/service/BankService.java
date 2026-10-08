@@ -6,6 +6,7 @@ import com.javaforge.bank.model.SavingsAccount;
 import com.javaforge.bank.model.Transaction;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,8 +19,14 @@ public class BankService {
     }
 
     public BankService(Scanner sc) {
+        this(sc, true);
+    }
+
+    public BankService(Scanner sc, boolean loadDemoData) {
         this.sc = sc;
-        loadTestData();
+        if (loadDemoData) {
+            loadTestData();
+        }
     }
 
     private void loadTestData() {
@@ -28,6 +35,18 @@ public class BankService {
         accounts.add(new CurrentAccount("CA2001", "Charlie Davis", 25000.00, 10000.00));
         accounts.add(new CurrentAccount("CA2002", "Diana Wilson", 8000.00, 5000.00));
         accounts.add(new SavingsAccount("SA1003", "Ethan Brown", 3200.00, 5.0, 1000.00));
+    }
+
+    public List<BankAccount> getAccounts() {
+        return Collections.unmodifiableList(accounts);
+    }
+
+    public boolean addAccount(BankAccount account) {
+        if (account == null || findAccountByNumber(account.getAccountNumber()) != null) {
+            return false;
+        }
+        accounts.add(account);
+        return true;
     }
 
     public BankAccount findAccountByNumber(String accountNumber) {
@@ -44,44 +63,37 @@ public class BankService {
         System.out.println("1. Savings Account");
         System.out.println("2. Current Account");
         System.out.print("Enter choice: ");
-        int type = sc.nextInt();
-        sc.nextLine();
+        int type = readInt("Enter choice: ");
 
-        System.out.print("Enter Account Number: ");
-        String accNo = sc.nextLine();
+        String accNo = readRequiredText("Enter Account Number: ");
 
         if (findAccountByNumber(accNo) != null) {
             System.out.println("Error: Account with number " + accNo + " already exists!");
             return;
         }
 
-        System.out.print("Enter Account Holder Name: ");
-        String name = sc.nextLine();
-        System.out.print("Enter Initial Deposit: ");
-        double deposit = sc.nextDouble();
-        sc.nextLine();
+        String name = readRequiredText("Enter Account Holder Name: ");
+        double deposit = readDouble("Enter Initial Deposit: ");
 
         if (type == 1) {
-            System.out.print("Enter Interest Rate (%): ");
-            double rate = sc.nextDouble();
-            sc.nextLine();
-            System.out.print("Enter Minimum Balance: ");
-            double minBal = sc.nextDouble();
-            sc.nextLine();
+            double rate = readDouble("Enter Interest Rate (%): ");
+            double minBal = readDouble("Enter Minimum Balance: ");
 
-            if (deposit < minBal) {
+            if (deposit < minBal || deposit < 0 || rate < 0 || minBal < 0) {
                 System.out.println("Error: Initial deposit must meet the minimum balance of $" + String.format("%.2f", minBal) + ".");
                 return;
             }
 
-            accounts.add(new SavingsAccount(accNo, name, deposit, rate, minBal));
+            addAccount(new SavingsAccount(accNo, name, deposit, rate, minBal));
             System.out.println("Savings Account created successfully...");
         } else if (type == 2) {
-            System.out.print("Enter Overdraft Limit: ");
-            double overdraft = sc.nextDouble();
-            sc.nextLine();
+            double overdraft = readDouble("Enter Overdraft Limit: ");
 
-            accounts.add(new CurrentAccount(accNo, name, deposit, overdraft));
+            if (deposit < 0 || overdraft < 0) {
+                System.out.println("Error: Deposit and overdraft limit cannot be negative.");
+                return;
+            }
+            addAccount(new CurrentAccount(accNo, name, deposit, overdraft));
             System.out.println("Current Account created successfully...");
         } else {
             System.out.println("Invalid account type!");
@@ -89,8 +101,7 @@ public class BankService {
     }
 
     public void deposit() {
-        System.out.print("Enter Account Number: ");
-        String accNo = sc.nextLine();
+        String accNo = readRequiredText("Enter Account Number: ");
 
         BankAccount account = findAccountByNumber(accNo);
         if (account == null) {
@@ -98,16 +109,13 @@ public class BankService {
             return;
         }
 
-        System.out.print("Enter Deposit Amount: $");
-        double amount = sc.nextDouble();
-        sc.nextLine();
+        double amount = readDouble("Enter Deposit Amount: $");
 
         account.deposit(amount);
     }
 
     public void withdraw() {
-        System.out.print("Enter Account Number: ");
-        String accNo = sc.nextLine();
+        String accNo = readRequiredText("Enter Account Number: ");
 
         BankAccount account = findAccountByNumber(accNo);
         if (account == null) {
@@ -115,16 +123,13 @@ public class BankService {
             return;
         }
 
-        System.out.print("Enter Withdrawal Amount: $");
-        double amount = sc.nextDouble();
-        sc.nextLine();
+        double amount = readDouble("Enter Withdrawal Amount: $");
 
         account.withdraw(amount);
     }
 
     public void checkBalance() {
-        System.out.print("Enter Account Number: ");
-        String accNo = sc.nextLine();
+        String accNo = readRequiredText("Enter Account Number: ");
 
         BankAccount account = findAccountByNumber(accNo);
         if (account == null) {
@@ -149,8 +154,7 @@ public class BankService {
     }
 
     public void viewTransactionHistory() {
-        System.out.print("Enter Account Number: ");
-        String accNo = sc.nextLine();
+        String accNo = readRequiredText("Enter Account Number: ");
 
         BankAccount account = findAccountByNumber(accNo);
         if (account == null) {
@@ -174,16 +178,14 @@ public class BankService {
     }
 
     public void transfer() {
-        System.out.print("Enter Source Account Number: ");
-        String srcAccNo = sc.nextLine();
+        String srcAccNo = readRequiredText("Enter Source Account Number: ");
         BankAccount srcAccount = findAccountByNumber(srcAccNo);
         if (srcAccount == null) {
             System.out.println("Source account " + srcAccNo + " not found.");
             return;
         }
 
-        System.out.print("Enter Destination Account Number: ");
-        String destAccNo = sc.nextLine();
+        String destAccNo = readRequiredText("Enter Destination Account Number: ");
         BankAccount destAccount = findAccountByNumber(destAccNo);
         if (destAccount == null) {
             System.out.println("Destination account " + destAccNo + " not found.");
@@ -195,23 +197,37 @@ public class BankService {
             return;
         }
 
-        System.out.print("Enter Transfer Amount: $");
-        double amount = sc.nextDouble();
-        sc.nextLine();
+        double amount = readDouble("Enter Transfer Amount: $");
 
+        if (!transfer(srcAccNo, destAccNo, amount)) {
+            return;
+        }
+
+        System.out.println("Transfer of $" + String.format("%.2f", amount) +
+                " from " + srcAccNo + " to " + destAccNo + " completed.");
+    }
+
+    public boolean transfer(String sourceAccountNumber, String destinationAccountNumber, double amount) {
+        BankAccount srcAccount = findAccountByNumber(sourceAccountNumber);
+        BankAccount destAccount = findAccountByNumber(destinationAccountNumber);
+
+        if (srcAccount == null || destAccount == null
+                || sourceAccountNumber == null || destinationAccountNumber == null
+                || sourceAccountNumber.equalsIgnoreCase(destinationAccountNumber)) {
+            System.out.println("Transfer failed: valid, different source and destination accounts are required.");
+            return false;
+        }
         if (amount <= 0) {
             System.out.println("Transfer amount must be greater than zero.");
-            return;
+            return false;
         }
 
         if (srcAccount.withdraw(amount)) {
             destAccount.deposit(amount);
-            srcAccount.addTransaction("TRANSFER OUT", amount);
-            destAccount.addTransaction("TRANSFER IN", amount);
-            System.out.println("Transfer of $" + String.format("%.2f", amount) +
-                    " from " + srcAccNo + " to " + destAccNo + " completed.");
+            return true;
         } else {
             System.out.println("Transfer failed: Insufficient funds in source account.");
+            return false;
         }
     }
 
@@ -228,6 +244,45 @@ public class BankService {
             System.out.println("No savings accounts found to apply interest.");
         } else {
             System.out.println("Interest applied to " + count + " savings account(s).");
+        }
+    }
+
+    private String readRequiredText(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String value = sc.nextLine().trim();
+            if (!value.isEmpty()) {
+                return value;
+            }
+            System.out.println("Value is required.");
+        }
+    }
+
+    private int readInt(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String value = sc.nextLine().trim();
+            try {
+                return Integer.parseInt(value);
+            } catch (NumberFormatException exception) {
+                System.out.println("Please enter a whole number.");
+            }
+        }
+    }
+
+    private double readDouble(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String value = sc.nextLine().trim();
+            try {
+                double amount = Double.parseDouble(value);
+                if (Double.isFinite(amount)) {
+                    return amount;
+                }
+            } catch (NumberFormatException ignored) {
+                // Keep the prompt interactive and show the same validation message below.
+            }
+            System.out.println("Please enter a valid number.");
         }
     }
 }

@@ -24,8 +24,14 @@ public class Main {
             System.out.println("9. Exit");
 
             System.out.print("Enter Choice: ");
-            int choice = sc.nextInt();
-            sc.nextLine();
+            String input = sc.nextLine().trim();
+            int choice;
+            try {
+                choice = Integer.parseInt(input);
+            } catch (NumberFormatException exception) {
+                System.out.println("Invalid Choice! Please enter a number between 1 and 9.");
+                continue;
+            }
 
             switch (choice) {
                 case 1:

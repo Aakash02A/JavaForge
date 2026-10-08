@@ -50,6 +50,19 @@ A console-based banking simulator built with Core Java, demonstrating **Inherita
 
 ```bash
 cd 03-Bank-Account-Simulator
-javac -d target/classes src/main/java/com/javaforge/bank/model/*.java src/main/java/com/javaforge/bank/service/*.java src/main/java/com/javaforge/bank/*.java
+mvn clean test
+mvn package
 java -cp target/classes com.javaforge.bank.Main
 ```
+
+The application starts with demo accounts so every menu operation can be tried immediately. It keeps data in memory and does not require an external database.
+
+## 🧪 Testing
+
+The JUnit suite verifies savings minimum-balance rules, current-account overdrafts, interest calculations, invalid configuration handling, and transfer behavior. Run it with:
+
+```bash
+mvn test
+```
+
+Transfers record one withdrawal on the source account and one deposit on the destination account, avoiding duplicate transaction entries.

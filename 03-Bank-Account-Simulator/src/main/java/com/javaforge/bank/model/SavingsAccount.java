@@ -6,6 +6,9 @@ public class SavingsAccount extends BankAccount {
 
     public SavingsAccount(String accountNumber, String accountHolderName, double initialDeposit, double interestRate, double minimumBalance) {
         super(accountNumber, accountHolderName, initialDeposit);
+        if (interestRate < 0 || minimumBalance < 0) {
+            throw new IllegalArgumentException("Interest rate and minimum balance cannot be negative.");
+        }
         this.interestRate = interestRate;
         this.minimumBalance = minimumBalance;
     }
@@ -15,6 +18,9 @@ public class SavingsAccount extends BankAccount {
     }
 
     public void setInterestRate(double interestRate) {
+        if (interestRate < 0) {
+            throw new IllegalArgumentException("Interest rate cannot be negative.");
+        }
         this.interestRate = interestRate;
     }
 
@@ -23,6 +29,9 @@ public class SavingsAccount extends BankAccount {
     }
 
     public void setMinimumBalance(double minimumBalance) {
+        if (minimumBalance < 0) {
+            throw new IllegalArgumentException("Minimum balance cannot be negative.");
+        }
         this.minimumBalance = minimumBalance;
     }
 

@@ -5,6 +5,9 @@ public class CurrentAccount extends BankAccount {
 
     public CurrentAccount(String accountNumber, String accountHolderName, double initialDeposit, double overdraftLimit) {
         super(accountNumber, accountHolderName, initialDeposit);
+        if (overdraftLimit < 0) {
+            throw new IllegalArgumentException("Overdraft limit cannot be negative.");
+        }
         this.overdraftLimit = overdraftLimit;
     }
 
@@ -13,6 +16,9 @@ public class CurrentAccount extends BankAccount {
     }
 
     public void setOverdraftLimit(double overdraftLimit) {
+        if (overdraftLimit < 0) {
+            throw new IllegalArgumentException("Overdraft limit cannot be negative.");
+        }
         this.overdraftLimit = overdraftLimit;
     }
 
