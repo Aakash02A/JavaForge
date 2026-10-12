@@ -98,8 +98,8 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 35 | 6 - Security | [Role Based Access](35-Role-Based-Access/) | RBAC | ✅ |
 | 36 | 6 - Security | [OAuth Login](36-OAuth-Login/) | OAuth2 | ✅ |
 | 37 | 6 - Security | [Refresh Token](37-Refresh-Token/) | Token Rotation | ✅ |
-| 38 | 7 - Advanced Backend | URL Shortener | Hashing | ⏳ |
-| 39 | 7 - Advanced Backend | File Storage API | AWS S3 | ⏳ |
+| 38 | 7 - Advanced Backend | [URL Shortener](38-URL-Shortener/) | Hashing | ✅ |
+| 39 | 7 - Advanced Backend | [File Storage API](39-File-Storage-API/) | Local Storage | ✅ |
 | 40 | 7 - Advanced Backend | Email Service | Java Mail | ⏳ |
 | 41 | 7 - Advanced Backend | Notification Service | Async | ⏳ |
 | 42 | 7 - Advanced Backend | Redis Cache Demo | Redis | ⏳ |
