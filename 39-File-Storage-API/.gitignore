@@ -1,0 +1,19 @@
+# Local runtime uploads
+uploads/
+uploads/**
+
+# Local Spring config overrides
+application-local.properties
+application-local.yml
+application-local.yaml
+*.local.properties
+
+# Secrets / credentials
+.env
+.env.*
+*.credentials.properties
+*.secrets.properties
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
