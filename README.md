@@ -105,7 +105,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 42 | 7 - Advanced Backend | [Redis Cache Demo](42-Redis-Cache-Demo/) | Redis | ✅ |
 | 43 | 7 - Advanced Backend | [Rate Limiter](43-Rate-Limiter/) | Redis | ✅ |
 | 44 | 8 - Microservices | [Product Service](44-Product-Service/) | REST | ✅ |
-| 45 | 8 - Microservices | Order Service | Microservices | ⏳ |
+| 45 | 8 - Microservices | [Order Service](45-Order-Service/) | Microservices | ✅ |
 | 46 | 8 - Microservices | Payment Service | Events | ⏳ |
 | 47 | 8 - Microservices | API Gateway | Spring Cloud | ⏳ |
 | 48 | 8 - Microservices | Service Discovery | Eureka | ⏳ |
