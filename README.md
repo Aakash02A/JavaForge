@@ -102,7 +102,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 39 | 7 - Advanced Backend | [File Storage API](39-File-Storage-API/) | Local Storage | ✅ |
 | 40 | 7 - Advanced Backend | [Email Service](40-Email-Service/) | Java Mail | ✅ |
 | 41 | 7 - Advanced Backend | [Notification Service](41-Notification-Service/) | Async | ✅ |
-| 42 | 7 - Advanced Backend | Redis Cache Demo | Redis | ⏳ |
+| 42 | 7 - Advanced Backend | [Redis Cache Demo](42-Redis-Cache-Demo/) | Redis | ✅ |
 | 43 | 7 - Advanced Backend | Rate Limiter | Redis | ⏳ |
 | 44 | 8 - Microservices | Product Service | REST | ⏳ |
 | 45 | 8 - Microservices | Order Service | Microservices | ⏳ |
