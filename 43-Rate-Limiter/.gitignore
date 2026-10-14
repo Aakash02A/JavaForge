@@ -1,0 +1,14 @@
+# Maven build output
+target/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
+*.local.properties
+
+# Redis persistence data
+redis-data/
