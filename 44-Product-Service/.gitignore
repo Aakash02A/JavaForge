@@ -1,0 +1,16 @@
+# Maven build output
+target/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
+*.local.properties
+
+# Local database files
+data/
+*.mv.db
+*.trace.db
