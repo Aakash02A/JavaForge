@@ -100,7 +100,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 37 | 6 - Security | [Refresh Token](37-Refresh-Token/) | Token Rotation | ✅ |
 | 38 | 7 - Advanced Backend | [URL Shortener](38-URL-Shortener/) | Hashing | ✅ |
 | 39 | 7 - Advanced Backend | [File Storage API](39-File-Storage-API/) | Local Storage | ✅ |
-| 40 | 7 - Advanced Backend | Email Service | Java Mail | ⏳ |
+| 40 | 7 - Advanced Backend | [Email Service](40-Email-Service/) | Java Mail | ✅ |
 | 41 | 7 - Advanced Backend | Notification Service | Async | ⏳ |
 | 42 | 7 - Advanced Backend | Redis Cache Demo | Redis | ⏳ |
 | 43 | 7 - Advanced Backend | Rate Limiter | Redis | ⏳ |
