@@ -1,0 +1,10 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: java-forge-payment-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USERNAME:-guest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-guest}
