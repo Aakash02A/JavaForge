@@ -12,9 +12,9 @@ public class GatewayRouteConfiguration {
     @Bean
     RouteLocator serviceRoutes(
             RouteLocatorBuilder builder,
-            @Value("${app.services.product-url:http://localhost:8080}") String productServiceUrl,
-            @Value("${app.services.order-url:http://localhost:8081}") String orderServiceUrl,
-            @Value("${app.services.payment-url:http://localhost:8082}") String paymentServiceUrl
+            @Value("${app.services.product-url:lb://PRODUCT-SERVICE}") String productServiceUrl,
+            @Value("${app.services.order-url:lb://ORDER-SERVICE}") String orderServiceUrl,
+            @Value("${app.services.payment-url:lb://PAYMENT-SERVICE}") String paymentServiceUrl
     ) {
         return builder.routes()
                 .route("products", route -> route.path("/api/products", "/api/products/**")

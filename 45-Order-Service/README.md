@@ -17,6 +17,7 @@ A Spring Boot order microservice that stores customer orders and validates reque
 - Java 21
 - Spring Boot 3.5.6
 - Spring Web (`RestClient`)
+- Spring Cloud Netflix Eureka Client and LoadBalancer
 - Spring Data JPA and Hibernate
 - H2 Database
 - Maven
@@ -24,14 +25,19 @@ A Spring Boot order microservice that stores customer orders and validates reque
 
 ## Run locally
 
-Start module 44 in one terminal:
+Start module 48 (Service Discovery), then module 44 in separate terminals:
+
+```powershell
+cd 48-Service-Discovery
+mvn spring-boot:run
+```
 
 ```powershell
 cd 44-Product-Service
 mvn spring-boot:run
 ```
 
-Start module 45 in another terminal:
+Start module 45:
 
 ```powershell
 cd 45-Order-Service
@@ -39,7 +45,8 @@ mvn clean test
 mvn spring-boot:run
 ```
 
-The Product Service listens on port `8080`; the Order Service listens on `8081`. Both use separate in-memory H2 databases by default. Seed a product in the Product Service before submitting an order.
+The Product Service listens on port `8080`; the Order Service listens on `8081`. Both use separate in-memory H2 databases by default. Seed a product in the Product Service before submitting an order. Order Service locates Product Service through Eureka and Spring Cloud LoadBalancer.
+
 
 ## API
 
@@ -129,7 +136,10 @@ Errors return a JSON object with timestamp, HTTP status, error label, and messag
 | Environment variable | Default | Purpose |
 | --- | --- | --- |
 | `SERVER_PORT` | `8081` | Order Service HTTP port |
-| `PRODUCT_SERVICE_URL` | `http://localhost:8080` | Product Service base URL |
+| `EUREKA_SERVER_URL` | `http://localhost:8761/eureka/` | Eureka registry URL |
+| `EUREKA_CLIENT_ENABLED` | `true` | Enable Eureka registration and discovery |
+| `PRODUCT_SERVICE_DISCOVERY_ENABLED` | `true` | Resolve Product Service using Eureka and LoadBalancer |
+| `PRODUCT_SERVICE_URL` | `http://PRODUCT-SERVICE` | Product Service ID URI when discovery is enabled; direct URL when disabled |
 | `DATABASE_URL` | `jdbc:h2:mem:orderdb` | Order Service JDBC connection URL |
 | `DATABASE_USERNAME` | `sa` | Database username |
 | `DATABASE_PASSWORD` | empty | Database password |
@@ -138,6 +148,7 @@ Example PowerShell configuration:
 
 ```powershell
 $env:PRODUCT_SERVICE_URL = "http://localhost:8080"
+$env:PRODUCT_SERVICE_DISCOVERY_ENABLED = "false"
 $env:SERVER_PORT = "8081"
 mvn spring-boot:run
 ```

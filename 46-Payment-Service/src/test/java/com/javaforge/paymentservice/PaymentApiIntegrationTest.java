@@ -22,7 +22,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(properties = "app.outbox.scheduler.enabled=false")
+@SpringBootTest(properties = {
+        "app.outbox.scheduler.enabled=false",
+        "eureka.client.enabled=false"
+})
 @AutoConfigureMockMvc
 class PaymentApiIntegrationTest {
 

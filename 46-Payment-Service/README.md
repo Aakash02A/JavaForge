@@ -21,26 +21,35 @@ This learning module records the payment as `COMPLETED`; it does not integrate w
 - Java 21
 - Spring Boot 3.5.6
 - Spring Web, Validation, Data JPA, and AMQP
+- Spring Cloud Netflix Eureka Client
 - H2 Database
 - RabbitMQ 4
 - Maven, JUnit 5, Mockito, and MockMvc
 
 ## Run locally
 
-Start RabbitMQ from this directory:
+From the repository root, start Service Discovery:
 
 ```powershell
+cd 48-Service-Discovery
+mvn spring-boot:run
+```
+
+In another terminal, start RabbitMQ:
+
+```powershell
+cd 46-Payment-Service
 docker compose up -d
 ```
 
-Run tests and start the API:
+Run tests and start the API from the Payment Service directory:
 
 ```powershell
 mvn clean test
 mvn spring-boot:run
 ```
 
-The Payment Service listens on `http://localhost:8082`. RabbitMQ management is available at `http://localhost:15672` (development credentials default to `guest`/`guest`). Stop RabbitMQ using `docker compose down`.
+The Payment Service listens on `http://localhost:8082` and registers with Eureka at `http://localhost:8761/eureka/` by default. Configure `EUREKA_SERVER_URL` for a different registry or set `EUREKA_CLIENT_ENABLED=false` to disable registration. RabbitMQ management is available at `http://localhost:15672` (development credentials default to `guest`/`guest`). Stop RabbitMQ using `docker compose down`.
 
 ## API
 
@@ -96,6 +105,8 @@ Tests disable the scheduler and use mocked publisher dependencies; no RabbitMQ o
 | Environment variable | Default | Purpose |
 | --- | --- | --- |
 | `SERVER_PORT` | `8082` | HTTP port |
+| `EUREKA_SERVER_URL` | `http://localhost:8761/eureka/` | Eureka registry URL |
+| `EUREKA_CLIENT_ENABLED` | `true` | Enable Eureka registration and discovery |
 | `DATABASE_URL` | `jdbc:h2:mem:paymentdb` | JDBC URL |
 | `DATABASE_USERNAME` | `sa` | Database username |
 | `DATABASE_PASSWORD` | empty | Database password |

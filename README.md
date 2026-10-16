@@ -108,7 +108,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 45 | 8 - Microservices | [Order Service](45-Order-Service/) | Microservices | ✅ |
 | 46 | 8 - Microservices | [Payment Service](46-Payment-Service/) | Events | ✅ |
 | 47 | 8 - Microservices | [API Gateway](47-API-Gateway/) | Spring Cloud | ✅ |
-| 48 | 8 - Microservices | Service Discovery | Eureka | ⏳ |
+| 48 | 8 - Microservices | [Service Discovery](48-Service-Discovery/) | Eureka | ✅ |
 | 49 | 8 - Microservices | Config Server | Spring Cloud | ⏳ |
 | 50 | 9 - Docker & DevOps | Dockerize REST API | Docker | ⏳ |
 | 51 | 9 - Docker & DevOps | Docker Compose | Compose | ⏳ |

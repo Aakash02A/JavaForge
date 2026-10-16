@@ -17,7 +17,10 @@ import java.nio.charset.StandardCharsets;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = "eureka.client.enabled=false"
+)
 class GatewayRoutingIntegrationTest {
 
     private static DisposableServer backend;
