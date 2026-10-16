@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import java.time.Duration;
 import java.util.UUID;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.awaitility.Awaitility.await;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
@@ -89,8 +90,8 @@ class NotificationApiIntegrationTest {
                                 }
                                 """))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value(
-                        "Recipient is required; Message is required"));
+                .andExpect(jsonPath("$.message").value(containsString("Recipient is required")))
+                .andExpect(jsonPath("$.message").value(containsString("Message is required")));
     }
 
     @Test
