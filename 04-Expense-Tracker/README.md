@@ -1,4 +1,4 @@
-# Project Idea
+# 04 - Expense Tracker
 
 Build an **Expense Tracker** that allows users to manage their daily expenses and track spending from the console.
 
@@ -101,3 +101,19 @@ Skills Gained:
 - OOP
 - Collections
 - Console-based application development
+
+## Build and run
+
+Requirements: JDK 21 and Maven.
+
+From this directory:
+
+```bash
+mvn clean package
+```
+
+Run the `Main` class from the IDE to interact with the menu. The application stores expenses in memory, so its data resets when it exits.
+
+## Tests
+
+Run `mvn test`. The project has a service-level test; use the console menu to verify add, list, category search, totals, and delete behavior.

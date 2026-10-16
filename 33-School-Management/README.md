@@ -1,86 +1,147 @@
-# School Management
+# 33 - School Management
 
-A Java 21 / Spring Boot 3 school API using Spring Data JPA with Hibernate ORM.
-Students enroll in courses through an `Enrollment` entity so school-specific
-data (enrollment date and grade) belongs to the relationship. Hibernate manages
-the entity mappings, lazy associations, generated IDs, timestamps, and
-optimistic-lock versions. DTOs keep persistence entities out of the API.
+Build a **School Management API** that represents the academic relationship between students, courses, and enrollments using Hibernate and JPA.
 
-The default database is H2 in-memory; no database server is required and data
-resets when the application stops.
+# Problem Statement
 
-## Requirements
+A simple many-to-many association between students and courses is not enough when you need to store grade and enrollment date information. This project introduces the classic `Enrollment` entity pattern, where relationship data belongs to the join record rather than the student or the course alone. This is how many real school systems model academic progress.
 
-- JDK 21
-- Maven 3.6+
+# Objectives
 
-## Run
+- Model students, courses, and enrollment records.
+- Use an `Enrollment` entity to store grade and enrollment date.
+- Support multiple student-course relationship operations.
+- Apply optimistic locking and validation.
+- Keep API payloads clean by exposing DTOs instead of raw entities.
 
-From this directory:
+# Features
+
+- Create students and courses.
+- Enroll a student in a course.
+- Update enrollment grades.
+- List student and course enrollments.
+- Remove enrollment relationships.
+- Delete student or course records while cleaning up related enrollments.
+- Protect against duplicate emails and duplicate course codes.
+
+# Tech Stack
+
+- Java 21
+- Spring Boot 3
+- Spring Web
+- Spring Data JPA
+- Hibernate ORM
+- H2 in-memory database
+- Maven
+
+# Architecture and Flow
+
+This project is an advanced JPA example with a relationship entity:
+
+- `Student` can have many enrollments.
+- `Course` can have many enrollments.
+- `Enrollment` belongs to both ends and stores academic metadata such as grade and enrollment date.
+- Hibernate handles entity mapping, optimistic locking, and relationship persistence.
+- DTOs keep the API safe and avoid serializing persistence entities directly.
+
+This is an important step toward realistic domain modeling because the join table itself holds data that matters to the business.
+
+# Setup and Run
+
+From the project directory:
 
 ```bash
 mvn spring-boot:run
 ```
 
-The API listens at `http://localhost:8080`. The H2 console is available at
-`http://localhost:8080/h2-console` with JDBC URL `jdbc:h2:mem:school`,
-username `sa`, and an empty password.
+The API is available at:
 
-## Endpoints
+```text
+http://localhost:8080
+```
+
+The H2 console is also available:
+
+```text
+http://localhost:8080/h2-console
+```
+
+with JDBC URL:
+
+```text
+jdbc:h2:mem:school
+```
+
+and username `sa`.
+
+# API Endpoints
 
 | Method | Path | Description | Success |
 | --- | --- | --- | --- |
 | `POST` | `/api/students` | Create a student | `201 Created` |
 | `GET` | `/api/students` | List students | `200 OK` |
-| `GET` | `/api/students/{id}` | Get a student and enrollments | `200 OK` |
+| `GET` | `/api/students/{id}` | Get one student | `200 OK` |
 | `PUT` | `/api/students/{id}` | Update a student | `200 OK` |
 | `DELETE` | `/api/students/{id}` | Delete a student and enrollments | `204 No Content` |
 | `GET` | `/api/students/{studentId}/enrollments` | List a student's enrollments | `200 OK` |
 | `POST` | `/api/students/{studentId}/courses/{courseId}` | Enroll a student in a course | `201 Created` |
-| `PUT` | `/api/students/{studentId}/enrollments/{enrollmentId}` | Set or update a grade | `200 OK` |
+| `PUT` | `/api/students/{studentId}/enrollments/{enrollmentId}` | Update an enrollment grade | `200 OK` |
 | `DELETE` | `/api/students/{studentId}/enrollments/{enrollmentId}` | Unenroll a student | `204 No Content` |
 | `POST` | `/api/courses` | Create a course | `201 Created` |
 | `GET` | `/api/courses` | List courses | `200 OK` |
-| `GET` | `/api/courses/{id}` | Get a course and enrollments | `200 OK` |
+| `GET` | `/api/courses/{id}` | Get one course | `200 OK` |
 | `PUT` | `/api/courses/{id}` | Update a course | `200 OK` |
 | `DELETE` | `/api/courses/{id}` | Delete a course and enrollments | `204 No Content` |
 | `GET` | `/api/courses/{courseId}/enrollments` | List a course's enrollments | `200 OK` |
 
-Student emails are valid and unique; emails are normalized to lowercase.
-Course codes are unique, normalized to uppercase, and contain 2-20 letters,
-digits, or hyphens. Course credits must be between 1 and 6. Student birth dates
-must be in the past. Grades are optional integers from 0 through 100. Invalid
-requests return `400`, missing records return `404`, and duplicate emails,
-course codes, or enrollments return `409`. Deleting a student or course removes
-their enrollment records without cascading deletion to the other entity.
+Validation rules:
 
-Student, Course, and Enrollment entities use Hibernate `@Version` optimistic
-locking. If concurrent updates conflict, the API returns `409` and asks the
-client to reload before retrying.
+- Student email must be valid and unique.
+- Course code must be unique and normalized to uppercase.
+- Credits must be between 1 and 6.
+- Student date of birth must be in the past.
+- Grade must be between 0 and 100 when provided.
 
-## Example
+Business rules:
+
+- Duplicate emails, course codes, or enrollment pairs return `409 Conflict`.
+- Missing records return `404 Not Found`.
+- Invalid requests return `400 Bad Request`.
+- Hibernate optimistic locking helps prevent lost updates under concurrency.
+
+# Example Requests
 
 ```bash
 curl -i -X POST http://localhost:8080/api/students \
   -H "Content-Type: application/json" \
   -d '{"name":"Mina Patel","email":"mina@school.example","dateOfBirth":"2005-06-15"}'
+
 curl -i -X POST http://localhost:8080/api/courses \
   -H "Content-Type: application/json" \
   -d '{"code":"CS101","title":"Computer Science","credits":4}'
+
 curl -i -X POST http://localhost:8080/api/students/1/courses/1
+
 curl -i -X PUT http://localhost:8080/api/students/1/enrollments/1 \
   -H "Content-Type: application/json" \
   -d '{"grade":95}'
+
 curl http://localhost:8080/api/courses/1/enrollments
 ```
 
-## Test
+# Project Details
 
-```bash
-mvn test
-mvn package
-```
+Difficulty: ⭐⭐⭐⭐☆ (Advanced)
 
-H2 integration tests cover persistence, normalized unique identifiers,
-enrollment/grade lifecycle, duplicate-enrollment protection, field validation,
-missing records, and dependent enrollment cleanup on student or course removal.
+Estimated Time: 5–8 hours
+
+Skills Gained:
+- Association entity modeling
+- Hibernate relationship management
+- Optimistic locking
+- Grade and enrollment lifecycle design
+- Real-world academic domain modeling
+
+## Tests
+
+Run `mvn test` to execute `SchoolManagementIntegrationTest`. It exercises course enrollment and grade workflows with the configured test database, including persistence and association behavior.

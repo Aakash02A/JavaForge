@@ -1,4 +1,4 @@
-# Project Idea
+# 10 - Inventory Manager
 
 Build an **Inventory Manager** that can manage products of different types using Java Generics.
 
@@ -110,3 +110,18 @@ Skills Gained:
 - Bounded Type Parameters
 - Abstract Classes
 - Type Safety
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
+
+```bash
+mvn clean package
+java -cp target/classes com.javaforge.inventory.Main
+```
+
+The entry point builds sample inventories for electronics and clothing, then demonstrates lookup, removal, and an empty inventory.
+
+## Tests
+
+Run `mvn test` to compile and execute any configured tests. This project currently has no test classes; use the included `Main` demonstration to inspect the generic inventory behavior.

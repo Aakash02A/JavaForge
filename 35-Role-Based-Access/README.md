@@ -1,28 +1,73 @@
-# Role-Based Access
+# 35 - Role Based Access
 
-A Java 21 / Spring Boot 3 API demonstrating role-based authorization (RBAC)
-with Spring Security and JWT authentication. Public registration always creates
-a `USER`; administrative access is provisioned explicitly and is never
-accepted as a user-controlled registration field.
+Build a **Role-Based Access Control API** that assigns users explicit roles and enforces those roles when clients access protected resources.
 
-## Requirements
+# Problem Statement
 
-- JDK 21
-- Maven 3.6+
+Authentication confirms a user's identity, but applications also need to decide what that identity is allowed to do. A regular account should not be able to access administrative actions simply because it has a valid login token. This project adds authorization rules to JWT authentication and demonstrates the distinction between authenticated requests and permitted requests.
 
-## Run
+# Objectives
 
-From this directory:
+- Define and persist account roles.
+- Grant ordinary users only the default `USER` role during public registration.
+- Restrict administrative routes to accounts with the `ADMIN` role.
+- Return `401 Unauthorized` for requests without valid authentication.
+- Return `403 Forbidden` when an authenticated user lacks the required role.
+- Allow administrators to list accounts and change account roles.
+
+# Features
+
+- Register and authenticate accounts using JWT.
+- Store account passwords as BCrypt hashes.
+- Assign `USER` automatically at registration; never accept a role from public signup input.
+- Provide a user dashboard accessible to `USER` and `ADMIN`.
+- Provide administrator-only account listing and role-management routes.
+- Bootstrap the initial administrator only from explicit environment configuration.
+- Load the current role from storage for each authenticated request so role changes affect existing tokens.
+- Return structured unauthorized and forbidden responses.
+
+# Tech Stack
+
+- Java 21
+- Spring Boot 3
+- Spring Web
+- Spring Security route authorization
+- Spring Data JPA and Hibernate
+- H2 in-memory database
+- JJWT
+- BCrypt password encoder
+- Bean Validation
+- Maven
+
+# Authorization Model
+
+The application defines two roles:
+
+- `USER`: assigned automatically to newly registered accounts; can use user-level resources.
+- `ADMIN`: can access administrator resources, inspect account roles, and change user roles.
+
+Spring Security represents these as `ROLE_USER` and `ROLE_ADMIN`. Route authorization checks the authenticated principal's granted authorities. Registration has no role field in its request DTO, preventing a caller from self-assigning administrator privileges.
+
+# Authentication and Authorization Flow
+
+1. Register or bootstrap an account. Public registration always creates a `USER`.
+2. Log in with the account's email and password to receive a signed access token.
+3. Send the token using the `Authorization: Bearer <accessToken>` header.
+4. The JWT filter validates the signature and expiration and loads the current account and role from the database.
+5. Spring Security permits or denies the request based on that role.
+6. If authorized, an administrator can update another account's role. Because roles are reloaded for requests rather than trusted from stale token claims, the change applies to that account's next request.
+
+# Setup and Run
+
+From the project directory:
 
 ```bash
 mvn spring-boot:run
 ```
 
-The API listens at `http://localhost:8080`. H2 stores users in memory; account
-records are cleared when the process stops.
+The API runs at `http://localhost:8080`. H2 is in-memory, so no separate database server is required and account data is removed when the application stops.
 
-For local testing of administrator routes, configure both bootstrap variables
-before starting the app. PowerShell example:
+To create the initial administrator, configure both `BOOTSTRAP_ADMIN_EMAIL` and `BOOTSTRAP_ADMIN_PASSWORD` before starting the application. In PowerShell:
 
 ```powershell
 $env:BOOTSTRAP_ADMIN_EMAIL = "admin@example.com"
@@ -31,68 +76,93 @@ $env:JWT_SECRET = "<private-base64-encoded-key-of-at-least-32-bytes>"
 mvn spring-boot:run
 ```
 
-When starting with bootstrap credentials, the application creates that account
-with the `ADMIN` role if it does not already exist. If only one bootstrap
-setting is supplied, or the existing account is not an administrator, startup
-fails rather than silently granting a role. Registration-created accounts
-always receive `USER`.
+Both bootstrap settings must be supplied together. An existing account with a non-admin role is not silently elevated during startup; startup fails with an explicit configuration error instead. The built-in JWT signing key is for local learning only. Use a private signing key and HTTPS outside local development.
 
-The default signing key is for local learning only. Configure a private
-Base64-encoded `JWT_SECRET` outside local development and use HTTPS in deployed
-environments.
-
-## Endpoints
+# API Endpoints
 
 | Method | Path | Description | Access |
 | --- | --- | --- | --- |
-| `POST` | `/api/auth/register` | Register a user account | Public |
-| `POST` | `/api/auth/login` | Authenticate and issue a token | Public |
-| `GET` | `/api/user/dashboard` | User-facing protected resource | USER or ADMIN |
-| `GET` | `/api/admin/dashboard` | Administrator-only resource | ADMIN |
-| `GET` | `/api/admin/users` | List accounts and roles | ADMIN |
-| `PUT` | `/api/admin/users/{userId}/role` | Change a user's role | ADMIN |
+| `POST` | `/api/auth/register` | Register an account with the `USER` role | Public |
+| `POST` | `/api/auth/login` | Authenticate and issue a JWT | Public |
+| `GET` | `/api/user/dashboard` | Access the user dashboard | `USER` or `ADMIN` |
+| `GET` | `/api/admin/dashboard` | Access the administrator dashboard | `ADMIN` |
+| `GET` | `/api/admin/users` | List account summaries and roles | `ADMIN` |
+| `PUT` | `/api/admin/users/{userId}/role` | Change an account's role | `ADMIN` |
 
-Passwords are hashed with BCrypt. Registration passwords must be 12-72
-characters. Emails are trimmed, normalized to lowercase, and unique. Invalid
-requests return `400`; duplicate emails return `409`; missing or invalid
-credentials return `401`; valid users without the required role receive `403`.
+Role update payload:
 
-Roles are loaded from the database during bearer-token authentication. A role
-change therefore takes effect on the user's next request, even when that user
-already holds an unexpired token.
-
-## Example
-
-Register an ordinary user:
-
-```powershell
-$user = Invoke-RestMethod -Method Post -Uri http://localhost:8080/api/auth/register `
-  -ContentType "application/json" `
-  -Body '{"email":"user@example.com","password":"local-user-password-123"}'
+```json
+{
+  "role": "ADMIN"
+}
 ```
 
-Log in and call the user route:
+Invalid request data returns `400 Bad Request`. A duplicate email returns `409 Conflict`. Missing or invalid authentication returns `401 Unauthorized`. A valid `USER` token calling an admin-only resource returns `403 Forbidden`. Updating the role of an unknown account returns `404 Not Found`.
 
-```powershell
-$login = Invoke-RestMethod -Method Post -Uri http://localhost:8080/api/auth/login `
-  -ContentType "application/json" `
-  -Body '{"email":"user@example.com","password":"local-user-password-123"}'
+# Example Requests
 
-Invoke-RestMethod -Uri http://localhost:8080/api/user/dashboard `
-  -Headers @{ Authorization = "Bearer $($login.accessToken)" }
+Register a regular user:
+
+```bash
+curl -i -X POST http://localhost:8080/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@example.com","password":"local-user-password-123"}'
 ```
 
-Log in using the configured bootstrap administrator to call
-`/api/admin/dashboard`, list accounts, or update roles. Do not permit public
-clients to choose or elevate their own roles.
+Log in and use the user resource:
 
-## Test and Build
+```bash
+curl -i -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user@example.com","password":"local-user-password-123"}'
+
+curl -i http://localhost:8080/api/user/dashboard \
+  -H "Authorization: Bearer <accessToken>"
+```
+
+Sign in as the configured administrator to list accounts and update roles:
+
+```bash
+curl -i http://localhost:8080/api/admin/users \
+  -H "Authorization: Bearer <adminAccessToken>"
+
+curl -i -X PUT http://localhost:8080/api/admin/users/1/role \
+  -H "Authorization: Bearer <adminAccessToken>" \
+  -H "Content-Type: application/json" \
+  -d '{"role":"ADMIN"}'
+```
+
+Replace the token placeholders with access tokens from the login response.
+
+# Security Scope and Limitations
+
+- Public registration cannot request or choose an account role.
+- Administrator provisioning requires explicit environment credentials.
+- Do not expose bootstrap credentials or the JWT signing key in source control.
+- Roles are queried from the database for authenticated requests so changes take effect without waiting for token expiration.
+- The H2 database is ephemeral and intended for learning and local testing.
+- This project demonstrates role authorization; OAuth login and refresh-token management are separate roadmap projects.
+
+# Test
+
+Run the integration tests and package the application:
 
 ```bash
 mvn test
 mvn package
 ```
 
-Integration tests cover default role assignment, USER versus ADMIN access,
-403 forbidden responses, admin role updates taking effect with an existing
-token, input validation, and anonymous access rejection.
+Tests cover default `USER` assignment, user access, administrator restrictions, `401` versus `403` behavior, role changes taking effect with an existing token, and role-input validation.
+
+# Project Details
+
+Difficulty: ⭐⭐⭐⭐☆ (Advanced)
+
+Estimated Time: 5–8 hours
+
+Skills Gained:
+- Role-based authorization
+- Spring Security authorities and access rules
+- Secure administrator bootstrap
+- Authentication versus authorization semantics
+- Role lifecycle and token interaction

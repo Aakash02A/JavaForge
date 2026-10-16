@@ -1,4 +1,4 @@
-# Project Idea
+# 15 - Chat Server
 
 Build a **Multi-Client Chat Server** where multiple users can connect and exchange messages in real time using Java Sockets.
 
@@ -65,16 +65,22 @@ main()  // switches between "server" and "client" mode via args
 
 # How to Run
 
+Requirements: JDK 21 and Maven. First compile the project:
+
 ```bash
-# Terminal 1 - Start the server
-java -cp out com.javaforge.chat.Main server
-
-# Terminal 2 - Connect as Alice
-java -cp out com.javaforge.chat.Main client
-
-# Terminal 3 - Connect as Bob
-java -cp out com.javaforge.chat.Main client
+mvn clean package
 ```
+
+Start the server from this directory:
+
+```bash
+# Terminal 1
+java -cp target/classes com.javaforge.chat.Main server
+# Terminal 2 (and additional client terminals)
+java -cp target/classes com.javaforge.chat.Main client
+```
+
+The server listens on port `5000`; clients connect to `localhost`. Enter a username when prompted. Type `/quit` to disconnect a client cleanly. Only one server process should bind to the configured port at a time.
 
 # Sample Output (Server Terminal)
 
@@ -116,3 +122,7 @@ Skills Gained:
 - Multi-threading
 - Client-Server Architecture
 - Network I/O
+
+## Tests
+
+Run `mvn test` to compile and execute any configured tests. This project currently has no automated test classes; verify broadcasting by connecting at least two clients to the same server.

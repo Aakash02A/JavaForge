@@ -1,70 +1,133 @@
-# Blog API
+# 30 - Blog API
 
-A Java 21 / Spring Boot 3 REST API demonstrating Spring Data JPA relationships.
-Authors have many posts; each post belongs to one author and can have many
-comments. DTOs are used for request and response payloads to avoid exposing JPA
-entities or recursive relationship serialization.
+Build a **Blog API** that models authors, blog posts, and comments with real entity relationships in a JPA-based backend.
 
-The project uses an H2 in-memory database by default, requiring no database
-server. Data resets when the application stops.
+# Problem Statement
 
-## Requirements
+A blog application is not just a list of posts; it has relationships between entities. An author can write many posts, and each post can receive many comments. Without careful design, relationships become recursive, difficult to serialize, and harder to validate. This project teaches how to map and manage these relationships in a Spring Boot API.
 
-- JDK 21
-- Maven 3.6+
+# Objectives
 
-## Run
+- Model a real blog domain with JPA relationships.
+- Create and retrieve authors, posts, and comments.
+- Use DTOs instead of exposing JPA entities directly.
+- Manage parent-child ownership correctly.
+- Learn cascade deletion and nested retrieval patterns.
 
-From this directory:
+# Features
+
+- Create authors with unique email addresses.
+- Create blog posts for an author.
+- Add comments to posts.
+- Get a post with its author and comments.
+- List posts with nested summaries.
+- Delete a post and its comment records.
+- Validate all relationship payloads.
+
+# Tech Stack
+
+- Java 21
+- Spring Boot 3
+- Spring Web
+- Spring Data JPA
+- Hibernate ORM
+- H2 in-memory database
+- Maven
+
+# Architecture and Flow
+
+This project demonstrates a relationship-heavy domain:
+
+- `Author` has many `Post` objects.
+- `Post` belongs to one `Author` and has many `Comment` objects.
+- The API uses DTOs to keep JSON responses clean and avoid recursion.
+- JPA handles entity persistence and relationship mapping.
+
+The main design decision is to avoid returning JPA entities directly to clients, because nested entity graphs can easily lead to infinite recursion or unstable JSON responses.
+
+# Setup and Run
+
+From the project directory:
 
 ```bash
 mvn spring-boot:run
 ```
 
-The API listens at `http://localhost:8080`. The H2 console is available at
-`http://localhost:8080/h2-console` with JDBC URL `jdbc:h2:mem:blog`, username
-`sa`, and an empty password.
+The app runs at:
 
-## Endpoints
+```text
+http://localhost:8080
+```
+
+The H2 console is available at:
+
+```text
+http://localhost:8080/h2-console
+```
+
+Use the JDBC URL:
+
+```text
+jdbc:h2:mem:blog
+```
+
+with username `sa` and an empty password.
+
+# API Endpoints
 
 | Method | Path | Description | Success |
 | --- | --- | --- | --- |
 | `POST` | `/api/authors` | Create an author | `201 Created` |
-| `GET` | `/api/authors` | List authors with post counts | `200 OK` |
+| `GET` | `/api/authors` | List authors | `200 OK` |
 | `POST` | `/api/posts` | Create a post for an author | `201 Created` |
-| `GET` | `/api/posts` | List posts with author and comments | `200 OK` |
-| `GET` | `/api/posts/{id}` | Get a post with its author and comments | `200 OK` |
-| `PUT` | `/api/posts/{id}` | Replace post content or author | `200 OK` |
-| `POST` | `/api/posts/{id}/comments` | Add a comment to a post | `201 Created` |
-| `GET` | `/api/posts/{id}/comments/{commentId}` | Get a comment on a post | `200 OK` |
+| `GET` | `/api/posts` | List posts | `200 OK` |
+| `GET` | `/api/posts/{id}` | Get one post and nested data | `200 OK` |
+| `PUT` | `/api/posts/{id}` | Update a post | `200 OK` |
+| `POST` | `/api/posts/{id}/comments` | Add a comment | `201 Created` |
+| `GET` | `/api/posts/{id}/comments/{commentId}` | Get a specific comment | `200 OK` |
 | `DELETE` | `/api/posts/{id}` | Delete a post and its comments | `204 No Content` |
 
-Author email must be valid and unique. Post titles and content, author IDs,
-commenter names, and comment content are validated. Invalid input returns `400`;
-missing authors or posts return `404`; duplicate author emails return `409`.
+Validation rules:
 
-## Example
+- Author email must be valid and unique.
+- Post title and content are required.
+- Commenter name and content are required.
+- Missing authors or posts return `404 Not Found`.
+- Invalid payloads return `400 Bad Request`.
+- Duplicate author emails return `409 Conflict`.
+
+# Example Requests
 
 ```bash
 curl -i -X POST http://localhost:8080/api/authors \
   -H "Content-Type: application/json" \
   -d '{"name":"Writer","email":"writer@example.com","bio":"Software writer"}'
+
 curl -i -X POST http://localhost:8080/api/posts \
   -H "Content-Type: application/json" \
   -d '{"title":"JPA Relationships","content":"Authors have many posts.","authorId":1}'
+
 curl -i -X POST http://localhost:8080/api/posts/1/comments \
   -H "Content-Type: application/json" \
   -d '{"commenterName":"Reader","content":"Great explanation!"}'
+
 curl http://localhost:8080/api/posts/1
 curl -i -X DELETE http://localhost:8080/api/posts/1
 ```
 
-## Test
+# Project Details
 
-```bash
-mvn test
-mvn package
-```
+Difficulty: ⭐⭐⭐☆☆ (Intermediate)
 
-Integration tests use H2 and cover relationship persistence, nested comment
-creation, post counts, cascading post deletion, validation, and missing authors.
+Estimated Time: 4–6 hours
+
+Skills Gained:
+- One-to-many and many-to-one mapping
+- JPA relationship management
+- DTO design and serialization control
+- Cascade behavior and cleanup
+- Real-world data modeling for blogs
+
+## Tests
+
+Run `mvn test` to execute `BlogApiIntegrationTest`. This Spring Boot integration test exercises the API and its post/comment persistence relationships using the configured test database.

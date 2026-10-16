@@ -1,4 +1,4 @@
-# Project Idea
+# 22 - Inventory Database
 
 Build an **Inventory Database** that tracks products, categories, suppliers, and stock movements using a normalized relational schema.
 
@@ -48,3 +48,25 @@ Never put real database credentials in source code or commit them to the reposit
 Difficulty: ⭐⭐⭐☆☆ (Intermediate)
 
 Estimated Time: 3–5 hours
+
+## Build and tests
+
+Requirements: JDK 21 and Maven.
+
+```bash
+mvn clean test
+```
+
+The automated `InventoryDAO` tests run on in-memory H2 and cover table setup, categories, suppliers, products, stock movement, and inventory queries. No MySQL server is needed for tests.
+
+## MySQL connection
+
+To try the optional MySQL setup, run `database/schema.sql` and copy the sample local configuration:
+
+```bash
+cp database/database.properties.example database/database.properties
+```
+
+Add your credentials only to the local ignored file. Call `InventoryDAO.fromLocalConfig()` from the project root; it reads the relative path `database/database.properties`. The inventory report derives on-hand quantity from `IN` and `OUT` movement rows, while outbound movements are transactionally checked against the current quantity.
+
+Read the tests in this order: create categories and suppliers, add a product, record stock, then query by SKU and verify a rejected outbound movement does not alter the ledger. This is a JDBC DAO example, not a UI or REST service.

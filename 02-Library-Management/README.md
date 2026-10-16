@@ -1,53 +1,119 @@
 # 02 - Library Management
 
-An Object-Oriented Programming (OOP) console application built with Core Java to manage books, borrowing, and inventory.
+Build a **Library Management System** using Object-Oriented Programming (OOP) principles to manage books, borrowing, and returns from the console.
 
-## 🚀 Features
+# Problem Statement
 
-- **Add Book:** Add books with ID uniqueness check.
-- **View All Books:** View complete inventory with availability and borrower info.
-- **Search Book:** Find books by ID or by case-insensitive title keyword.
-- **Issue Book:** Checkout books to a borrower with validation.
-- **Return Book:** Return checked-out books and update availability.
-- **View Issued Books:** List all currently borrowed books and their borrowers.
-- **Delete Book:** Remove books from inventory.
+Managing books, member checkouts, and inventory manually leads to book misplacement and inefficient record-keeping. The **Library Management System** is a Java console application that provides an organized way to digitally catalog books, search the inventory, issue books to borrowers, process returns, and manage records.
 
-## 🛠️ Tech Stack & Concepts
+# Objectives
 
-- **Language:** Java 21
-- **OOP Concepts:**
-  - **Abstraction:** Abstract base class `LibraryItem` with abstract contracts.
-  - **Inheritance:** `Book` inherits from `LibraryItem`.
-  - **Polymorphism:** Overriding `getItemType()`, `displayDetails()`, `toString()`.
-  - **Encapsulation:** State management (`isAvailable`, `issuedTo`, getters/setters).
-- **Collections:** `ArrayList`
-- **Architecture:** Layered packaging (`model`, `service`, `Main`)
+- Catalog and manage library inventory.
+- Demonstrate OOP concepts: Abstraction, Encapsulation, Inheritance, and Polymorphism.
+- Add new books to the library.
+- View all library books and their status.
+- Search for books by ID or title keyword.
+- Issue books to borrowers and track availability.
+- Process book returns.
+- View all currently issued books.
+- Delete/remove books from inventory.
 
-## 📂 Project Structure
+# Features
+
+- Add Book
+- View All Books
+- Search Book (by ID or Title Keyword)
+- Issue Book to Borrower
+- Return Book
+- View Currently Issued Books
+- Delete Book
+- Exit
+
+# Book Details
+
+- Book ID
+- Title
+- Author
+- Genre / Category
+- ISBN
+- Availability Status
+- Issued To (Borrower Name)
+
+# Tech Stack
+
+- Java (Core Java 21)
+- OOP (Abstraction, Encapsulation, Inheritance, Polymorphism)
+- Collections (ArrayList)
+- Scanner (User Input)
+- Control Flow & Loops
+
+# OOP Architecture
 
 ```
-02-Library-Management/
-├── pom.xml
-└── src/
-    └── main/
-        └── java/
-            └── com/
-                └── javaforge/
-                    └── library/
-                        ├── model/
-                        │   ├── LibraryItem.java
-                        │   └── Book.java
-                        ├── service/
-                        │   └── LibraryManagement.java
-                        └── Main.java
+LibraryItem (abstract)
+   │
+   └── Book (inherits from LibraryItem)
 ```
 
-## ▶️ How to Run
+### Class Structure:
 
-Compile and execute:
+- **`LibraryItem` (Abstract Class):**
+  - Encapsulates common attributes (`id`, `title`, `author`, `isAvailable`, `issuedTo`).
+  - Abstract methods `getItemType()` and `displayDetails()`.
+  - Common methods: `issueItem(borrowerName)`, `returnItem()`.
+- **`Book` (Class):**
+  - Inherits from `LibraryItem`.
+  - Additional attributes: `genre`, `isbn`.
+  - Polymorphically overrides `getItemType()`, `displayDetails()`, and `toString()`.
+- **`LibraryManagement` (Service):**
+  - Manages list of books.
+  - Implements operations: `addBook()`, `viewAllBooks()`, `searchBook()`, `issueBook()`, `returnBook()`, `viewIssuedBooks()`, `deleteBook()`.
+- **`Main` (Runner):**
+  - Console menu driver.
+
+# Sample Menu
+
+```
+===== Library Management System =====
+1. Add Book
+2. View All Books
+3. Search Book
+4. Issue Book
+5. Return Book
+6. View Issued Books
+7. Delete Book
+8. Exit
+Enter Choice:
+```
+
+# Learning Outcomes
+
+By completing this project, you will learn:
+- Applying OOP principles (Abstraction, Encapsulation, Inheritance, Polymorphism)
+- Designing class hierarchies with abstract classes and method overriding
+- State management and business logic validation (issue/return constraints)
+- Building robust interactive console applications
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
 
 ```bash
-cd 02-Library-Management
-javac -d target/classes src/main/java/com/javaforge/library/model/*.java src/main/java/com/javaforge/library/service/*.java src/main/java/com/javaforge/library/*.java
+mvn clean package
 java -cp target/classes com.javaforge.library.Main
 ```
+
+Follow the menu to add or search books, issue a book to a borrower, return it, list issued books, or remove an item. The in-memory catalog resets when the program exits.
+
+## Code walkthrough
+
+- `LibraryItem` is the abstract parent for catalog items and owns shared availability/borrower state.
+- `Book` extends the base type with book-specific fields.
+- `LibraryManagement` contains catalog and issue/return operations.
+- `Main` presents the console menu.
+
+Try issuing a book and then searching for it again. Observe how the availability state changes, and how the service prevents a second issue while the book is already checked out. Return the book and verify that it becomes available again.
+
+## Tests
+
+Run `mvn test` to compile and execute configured tests. This project currently has no automated test classes; manually test missing IDs, repeated issue/return operations, and deletion behavior.

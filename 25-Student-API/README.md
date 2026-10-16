@@ -1,66 +1,117 @@
-# Student API
+# 25 - Student API
 
-A layered Student CRUD API built with Java 21 and Spring Boot 3. Student
-records are held in thread-safe in-memory storage and are cleared when the
-application stops. This project focuses on request validation; database
-persistence is covered by the later Spring Data JPA projects.
+Build a **Student API** that manages student records with validation, unique email handling, and clean CRUD behavior.
 
-## Requirements
+# Problem Statement
 
-- JDK 21
-- Maven 3.6+
+When student records are managed manually, it is easy to make mistakes such as duplicate entries, invalid email values, or inconsistent course information. This project solves that problem by enforcing validation rules and giving the API a clear, predictable structure.
 
-## Run
+# Objectives
 
-From this directory:
+- Create, read, update, and delete student records.
+- Validate request fields before saving data.
+- Prevent duplicate emails.
+- Normalize and sanitize common input values.
+- Practice layered backend development with Spring Boot.
+
+# Features
+
+- Add new students with full name, age, email, and course.
+- List all students in creation order.
+- Get one student by ID.
+- Update a student's details.
+- Delete a student record.
+- Reject invalid email, age, and blank values.
+- Prevent duplicate email registration.
+
+# Tech Stack
+
+- Java 21
+- Spring Boot 3
+- Spring Web
+- Bean Validation
+- Maven
+- In-memory storage
+
+# Architecture and Flow
+
+This project introduces a cleaner service-based architecture while still keeping data in memory:
+
+- Controller receives web requests.
+- Service validates and applies business logic.
+- Repository keeps student records in a thread-safe collection.
+- DTO records define the API contract.
+
+The application normalizes emails to lowercase and trims whitespace for consistency. This avoids small input variations creating separate student records.
+
+# Setup and Run
+
+From the project directory:
 
 ```bash
 mvn spring-boot:run
 ```
 
-The API listens at `http://localhost:8080`.
+The app starts at:
 
-## Endpoints
+```text
+http://localhost:8080
+```
+
+# API Endpoints
 
 | Method | Path | Description | Success |
 | --- | --- | --- | --- |
-| `POST` | `/api/students` | Create a student | `201 Created` with `Location` |
-| `GET` | `/api/students` | List students in creation order | `200 OK` |
-| `GET` | `/api/students/{id}` | Get one student | `200 OK` |
-| `PUT` | `/api/students/{id}` | Replace a student's details | `200 OK` |
+| `POST` | `/api/students` | Create a student | `201 Created` |
+| `GET` | `/api/students` | List all students | `200 OK` |
+| `GET` | `/api/students/{id}` | Get a student by ID | `200 OK` |
+| `PUT` | `/api/students/{id}` | Update a student | `200 OK` |
 | `DELETE` | `/api/students/{id}` | Delete a student | `204 No Content` |
 
-## Validation
+Validation rules:
 
-- `fullName`: required, non-blank, at most 100 characters
-- `email`: required, valid email address, at most 254 characters
-- `age`: between 16 and 120 inclusive
-- `course`: required, non-blank, at most 100 characters
+- `fullName` is required and must be under 100 characters.
+- `email` must be valid and under 254 characters.
+- `age` must be between 16 and 120.
+- `course` is required and must not be blank.
 
-Emails are trimmed, normalized to lowercase, and unique. Invalid requests return
-`400 Bad Request` with field-level errors; a duplicate email returns `409
-Conflict`; an unknown student ID returns `404 Not Found`.
+Business rules:
 
-## Example
+- Emails are normalized to lowercase.
+- Duplicate emails return `409 Conflict`.
+- Missing students return `404 Not Found`.
+- Invalid payloads return `400 Bad Request`.
+
+# Example Requests
 
 ```bash
 curl -i -X POST http://localhost:8080/api/students \
   -H "Content-Type: application/json" \
   -d '{"fullName":"Asha Rao","email":"asha@example.com","age":20,"course":"Computer Science"}'
+
 curl http://localhost:8080/api/students
+
 curl -X PUT http://localhost:8080/api/students/1 \
   -H "Content-Type: application/json" \
   -d '{"fullName":"Asha Patel","email":"asha@example.com","age":21,"course":"Data Science"}'
+
 curl -i http://localhost:8080/api/students/999
 curl -i -X DELETE http://localhost:8080/api/students/1
 ```
 
-## Test
+# Project Details
 
-```bash
-mvn test
-mvn package
-```
+Difficulty: ⭐☆☆☆☆ (Beginner)
 
-Tests cover student CRUD, normalization, duplicate email handling, field
-validation, and HTTP error responses.
+Estimated Time: 2–4 hours
+
+Skills Gained:
+- Spring Boot CRUD APIs
+- Validation and conflict handling
+- DTO-level input processing
+- Error handling in REST services
+- Data normalization
+
+## Tests
+
+Run `mvn test` to execute `StudentControllerTest` and `StudentServiceTest`. Controller tests exercise request/response behavior while service tests cover student operations. The suite does not require a separate database server.

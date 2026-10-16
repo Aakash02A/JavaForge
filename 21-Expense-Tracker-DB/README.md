@@ -1,4 +1,4 @@
-# Project Idea
+# 21 - Expense Tracker DB
 
 Build an **Expense Tracker Database** application that stores, retrieves, updates, and deletes expense records using JDBC.
 
@@ -47,3 +47,25 @@ The JDBC DAO uses prepared statements for its CRUD operations. Example setup and
 Difficulty: ⭐⭐⭐☆☆ (Intermediate)
 
 Estimated Time: 3–5 hours
+
+## Build and tests
+
+Requirements: JDK 21 and Maven.
+
+```bash
+mvn clean test
+```
+
+The automated `ExpenseDAO` tests use an in-memory H2 database; MySQL is not required for tests. The tested operations include schema creation, insert, lookup, list, update, delete, and validation.
+
+## MySQL connection
+
+To try the optional MySQL configuration, run `database/schema.sql`, copy the sample file, and enter credentials only in the local ignored file:
+
+```bash
+cp database/database.properties.example database/database.properties
+```
+
+Run code that calls `ExpenseDAO.fromLocalConfig()` from the project root, because it reads `database/database.properties` using a relative path. Use `BigDecimal` for amounts and `LocalDate` for expense dates. SQL uses prepared statements; never put real credentials in source code or commit the local properties file.
+
+This module provides a DAO, not a console application or REST API. Start with the tests to see how to create an `Expense`, persist it, and verify its generated ID.

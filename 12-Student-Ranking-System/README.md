@@ -1,4 +1,4 @@
-# Project Idea
+# 12 - Student Ranking System
 
 Build a **Student Ranking System** that sorts a list of students using multiple `Comparator` strategies.
 
@@ -96,3 +96,18 @@ Skills Gained:
 - Chained Sorting Logic
 - Lambda Expressions
 - Anonymous Inner Classes
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
+
+```bash
+mvn clean package
+java -cp target/classes com.javaforge.ranking.Main
+```
+
+The main class prints sample rankings using the supported comparator strategies; there is no database or external input.
+
+## Tests
+
+Run `mvn test` to compile and execute any configured tests. This project currently has no automated test classes; use the sample output to inspect sort order and tie-breaking.

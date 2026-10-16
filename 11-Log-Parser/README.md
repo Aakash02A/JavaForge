@@ -1,4 +1,4 @@
-# Project Idea
+# 11 - Log Parser
 
 Build a **Log Parser** that reads a server log file, parses each log entry, filters by severity level, and writes the results to an output file.
 
@@ -104,3 +104,18 @@ Skills Gained:
 - String Parsing
 - Java Streams
 - File I/O
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
+
+```bash
+mvn clean package
+java -cp target/classes com.javaforge.logparser.Main
+```
+
+The demo creates `server.log`, `empty.log`, and `invalid.log`, then writes filtered error entries to `error_logs.txt` in the current working directory. Run it from this project directory so generated files stay with the project.
+
+## Tests
+
+Run `mvn test` to compile and execute any configured tests. This project currently has no test classes; `Main` demonstrates valid input, malformed lines, empty and missing files, summary counts, and filtering.

@@ -1,4 +1,4 @@
-# Project Idea
+# 09 - Employee Analytics
 
 Build an **Employee Analytics System** that performs data analysis on a list of employees using Java Streams.
 
@@ -109,3 +109,18 @@ Skills Gained:
 - Lambda Expressions
 - Collectors
 - Functional Programming
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
+
+```bash
+mvn clean package
+java -cp target/classes com.javaforge.analytics.Main
+```
+
+`Main` runs the analytics examples against its sample employee data and prints the results; this project has no interactive input or persistence.
+
+## Tests
+
+Run `mvn test` to compile and execute the configured tests. This project currently has no test classes, so review the sample output when running `Main`.

@@ -1,4 +1,4 @@
-# Project Idea
+# 13 - Cache Simulator
 
 Build a **Cache Simulator** that implements the LRU (Least Recently Used) cache eviction policy using Java's `LinkedHashMap`.
 
@@ -91,3 +91,18 @@ Skills Gained:
 - LinkedHashMap Internals
 - Java Generics
 - Data Structures
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
+
+```bash
+mvn clean package
+java -cp target/classes com.javaforge.cache.Main
+```
+
+The demo inserts and accesses sample entries to show least-recently-used eviction. The cache is in-memory and scoped to the running process.
+
+## Tests
+
+Run `mvn test` to compile and execute any configured tests. This project currently has no automated test classes; run the demo to observe access order and eviction.

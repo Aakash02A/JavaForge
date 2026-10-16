@@ -1,4 +1,4 @@
-# Project Idea
+# 14 - Producer Consumer
 
 Build a **Producer-Consumer** system that demonstrates safe multi-threaded communication using Java Threads and `BlockingQueue`.
 
@@ -95,3 +95,18 @@ Skills Gained:
 - BlockingQueue
 - Concurrency Patterns
 - Thread Safety
+
+## Build and run
+
+Requirements: JDK 21 and Maven. From this directory:
+
+```bash
+mvn clean package
+java -cp target/classes com.javaforge.producer.Main
+```
+
+The program runs its producer/consumer examples and waits for worker threads to finish before exiting. Console output can interleave because multiple threads are active.
+
+## Tests
+
+Run `mvn test` to compile and execute any configured tests. This project currently has no automated test classes; run the examples to observe queue blocking and thread coordination.
