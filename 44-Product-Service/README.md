@@ -20,17 +20,25 @@ A Spring Boot REST microservice that manages a product catalog. It exposes produ
 - Spring Data JPA and Hibernate
 - H2 Database
 - Spring Cloud Netflix Eureka Client
+- Spring Cloud Config Client
 - Maven
 - JUnit 5 and MockMvc
 
 ## Run locally
+
+Start module 49 (Config Server) and module 48 (Service Discovery) in separate terminals:
+
+```powershell
+cd 49-Config-Server
+mvn spring-boot:run
+```
 
 ```powershell
 cd 48-Service-Discovery
 mvn spring-boot:run
 ```
 
-With the registry running, start the service:
+Then start the service:
 
 ```powershell
 cd 44-Product-Service
@@ -38,7 +46,7 @@ mvn clean test
 mvn spring-boot:run
 ```
 
-The service listens on `http://localhost:8080` and registers with Eureka at `http://localhost:8761/eureka/` by default. Configure `EUREKA_SERVER_URL` to use a different registry or set `EUREKA_CLIENT_ENABLED=false` to disable registration. The default H2 database is in-memory and resets when the application stops.
+The service listens on `http://localhost:8080`, loads central defaults from Config Server at `http://localhost:8888`, and registers with Eureka at `http://localhost:8761/eureka/` by default. Configure `CONFIG_SERVER_URL` and `EUREKA_SERVER_URL` to use different servers, or set `SPRING_CLOUD_CONFIG_ENABLED=false` and `EUREKA_CLIENT_ENABLED=false` to disable the clients. The default H2 database is in-memory and resets when the application stops.
 
 ## API
 

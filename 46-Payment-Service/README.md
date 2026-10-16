@@ -22,13 +22,19 @@ This learning module records the payment as `COMPLETED`; it does not integrate w
 - Spring Boot 3.5.6
 - Spring Web, Validation, Data JPA, and AMQP
 - Spring Cloud Netflix Eureka Client
+- Spring Cloud Config Client
 - H2 Database
 - RabbitMQ 4
 - Maven, JUnit 5, Mockito, and MockMvc
 
 ## Run locally
 
-From the repository root, start Service Discovery:
+From the repository root, start Config Server and Service Discovery:
+
+```powershell
+cd 49-Config-Server
+mvn spring-boot:run
+```
 
 ```powershell
 cd 48-Service-Discovery
@@ -49,7 +55,7 @@ mvn clean test
 mvn spring-boot:run
 ```
 
-The Payment Service listens on `http://localhost:8082` and registers with Eureka at `http://localhost:8761/eureka/` by default. Configure `EUREKA_SERVER_URL` for a different registry or set `EUREKA_CLIENT_ENABLED=false` to disable registration. RabbitMQ management is available at `http://localhost:15672` (development credentials default to `guest`/`guest`). Stop RabbitMQ using `docker compose down`.
+The Payment Service listens on `http://localhost:8082`, loads defaults from Config Server at `http://localhost:8888`, and registers with Eureka at `http://localhost:8761/eureka/` by default. Configure `CONFIG_SERVER_URL` and `EUREKA_SERVER_URL` to use different servers, or set `SPRING_CLOUD_CONFIG_ENABLED=false` and `EUREKA_CLIENT_ENABLED=false` to disable clients. RabbitMQ management is available at `http://localhost:15672` (development credentials default to `guest`/`guest`). Stop RabbitMQ using `docker compose down`.
 
 ## API
 
@@ -105,6 +111,8 @@ Tests disable the scheduler and use mocked publisher dependencies; no RabbitMQ o
 | Environment variable | Default | Purpose |
 | --- | --- | --- |
 | `SERVER_PORT` | `8082` | HTTP port |
+| `CONFIG_SERVER_URL` | `http://localhost:8888` | Config Server base URL |
+| `SPRING_CLOUD_CONFIG_ENABLED` | `true` | Enable Config Client |
 | `EUREKA_SERVER_URL` | `http://localhost:8761/eureka/` | Eureka registry URL |
 | `EUREKA_CLIENT_ENABLED` | `true` | Enable Eureka registration and discovery |
 | `DATABASE_URL` | `jdbc:h2:mem:paymentdb` | JDBC URL |

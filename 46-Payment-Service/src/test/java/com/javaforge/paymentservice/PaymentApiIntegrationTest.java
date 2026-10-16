@@ -24,7 +24,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(properties = {
         "app.outbox.scheduler.enabled=false",
-        "eureka.client.enabled=false"
+        "eureka.client.enabled=false",
+        "spring.cloud.config.enabled=false"
 })
 @AutoConfigureMockMvc
 class PaymentApiIntegrationTest {

@@ -9,6 +9,7 @@ A reactive Spring Cloud Gateway that provides one HTTP entry point for the Produ
 - Route payment API requests to module 46.
 - Preserve request method, path, query string, headers, and body.
 - Discover downstream services through Eureka, with optional direct URL overrides.
+- Load default service and gateway settings from Config Server.
 - Map upstream connection failures to `502 Bad Gateway` and upstream timeouts to `504 Gateway Timeout`.
 - Use Spring WebFlux and Reactor Netty; no servlet MVC server is used.
 
@@ -18,11 +19,17 @@ A reactive Spring Cloud Gateway that provides one HTTP entry point for the Produ
 - Spring Boot 3.5.6
 - Spring Cloud Gateway (Spring Cloud 2025.0.0)
 - Spring WebFlux and Reactor Netty
+- Spring Cloud Config Client
 - Maven, JUnit 5, and WebTestClient
 
 ## Run the services
 
-Start module 48 (Service Discovery), then start each service in a separate terminal:
+Start module 49 (Config Server) and module 48 (Service Discovery), then start each service in a separate terminal:
+
+```powershell
+cd 49-Config-Server
+mvn spring-boot:run
+```
 
 ```powershell
 cd 48-Service-Discovery
@@ -69,6 +76,8 @@ Paths and query strings are forwarded unchanged. Use the downstream service docu
 | Environment variable | Default | Purpose |
 | --- | --- | --- |
 | `SERVER_PORT` | `8083` | Gateway HTTP port |
+| `CONFIG_SERVER_URL` | `http://localhost:8888` | Config Server base URL |
+| `SPRING_CLOUD_CONFIG_ENABLED` | `true` | Enable Config Client |
 | `EUREKA_SERVER_URL` | `http://localhost:8761/eureka/` | Eureka registry URL |
 | `EUREKA_CLIENT_ENABLED` | `true` | Enable Eureka registration and discovery |
 | `PRODUCT_SERVICE_URL` | `lb://PRODUCT-SERVICE` | Product Service route URI; direct URL also supported |

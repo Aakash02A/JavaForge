@@ -18,6 +18,7 @@ A Spring Boot order microservice that stores customer orders and validates reque
 - Spring Boot 3.5.6
 - Spring Web (`RestClient`)
 - Spring Cloud Netflix Eureka Client and LoadBalancer
+- Spring Cloud Config Client
 - Spring Data JPA and Hibernate
 - H2 Database
 - Maven
@@ -25,7 +26,7 @@ A Spring Boot order microservice that stores customer orders and validates reque
 
 ## Run locally
 
-Start module 48 (Service Discovery), then module 44 in separate terminals:
+Start module 49 (Config Server) and module 48 (Service Discovery), then module 44 in separate terminals:
 
 ```powershell
 cd 48-Service-Discovery
@@ -45,7 +46,7 @@ mvn clean test
 mvn spring-boot:run
 ```
 
-The Product Service listens on port `8080`; the Order Service listens on `8081`. Both use separate in-memory H2 databases by default. Seed a product in the Product Service before submitting an order. Order Service locates Product Service through Eureka and Spring Cloud LoadBalancer.
+The Product Service listens on port `8080`; the Order Service listens on `8081`. Both use separate in-memory H2 databases by default. Seed a product in the Product Service before submitting an order. Both load defaults from Config Server; Order Service locates Product Service through Eureka and Spring Cloud LoadBalancer.
 
 
 ## API
@@ -138,6 +139,8 @@ Errors return a JSON object with timestamp, HTTP status, error label, and messag
 | `SERVER_PORT` | `8081` | Order Service HTTP port |
 | `EUREKA_SERVER_URL` | `http://localhost:8761/eureka/` | Eureka registry URL |
 | `EUREKA_CLIENT_ENABLED` | `true` | Enable Eureka registration and discovery |
+| `CONFIG_SERVER_URL` | `http://localhost:8888` | Config Server base URL |
+| `SPRING_CLOUD_CONFIG_ENABLED` | `true` | Enable Config Client |
 | `PRODUCT_SERVICE_DISCOVERY_ENABLED` | `true` | Resolve Product Service using Eureka and LoadBalancer |
 | `PRODUCT_SERVICE_URL` | `http://PRODUCT-SERVICE` | Product Service ID URI when discovery is enabled; direct URL when disabled |
 | `DATABASE_URL` | `jdbc:h2:mem:orderdb` | Order Service JDBC connection URL |
