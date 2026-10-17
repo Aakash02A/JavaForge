@@ -111,7 +111,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 48 | 8 - Microservices | [Service Discovery](48-Service-Discovery/) | Eureka | ✅ |
 | 49 | 8 - Microservices | [Config Server](49-Config-Server/) | Spring Cloud | ✅ |
 | 50 | 9 - Docker & DevOps | [Dockerize REST API](50-Dockerize-REST-API/) | Docker | ✅ |
-| 51 | 9 - Docker & DevOps | Docker Compose | Compose | ⏳ |
+| 51 | 9 - Docker & DevOps | [Docker Compose](51-Docker-Compose/) | Compose | ✅ |
 | 52 | 9 - Docker & DevOps | CI/CD Pipeline | GitHub Actions | ⏳ |
 | 53 | 9 - Docker & DevOps | Deploy on AWS | EC2 | ⏳ |
 | 54 | 9 - Docker & DevOps | Monitoring | Prometheus | ⏳ |
