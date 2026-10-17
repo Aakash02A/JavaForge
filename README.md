@@ -113,8 +113,7 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 | 50 | 9 - Docker & DevOps | [Dockerize REST API](50-Dockerize-REST-API/) | Docker | ✅ |
 | 51 | 9 - Docker & DevOps | [Docker Compose](51-Docker-Compose/) | Compose | ✅ |
 | 52 | 9 - Docker & DevOps | [CI/CD Pipeline](52-CI-CD-Pipeline/) | GitHub Actions | ✅ |
-| 52 | 9 - Docker & DevOps | CI/CD Pipeline | GitHub Actions | ⏳ |
-| 53 | 9 - Docker & DevOps | Deploy on AWS | EC2 | ⏳ |
+| 53 | 9 - Docker & DevOps | [Deploy on AWS](53-Deploy-on-AWS-EC2/) | EC2 | ✅ |
 | 54 | 9 - Docker & DevOps | Monitoring | Prometheus | ⏳ |
 | 55 | 9 - Docker & DevOps | Logging | ELK | ⏳ |
 | 56 | 10 - Resume Projects | E-Commerce Backend | ⭐⭐⭐⭐⭐ | ⏳ |

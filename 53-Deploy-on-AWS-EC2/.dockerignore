@@ -1,0 +1,15 @@
+.git
+.gitignore
+.dockerignore
+.idea
+.vscode
+*.iml
+*.class
+*.log
+.env
+.env.*
+target
+out
+terraform
+*.tf
+*.tfvars
