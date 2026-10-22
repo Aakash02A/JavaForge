@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/banner.png" alt="Java Forge Banner" width="100%">
+  <img src="assets/banner.png" alt="Java Forge Banner" width="100%">
 
 # Java Forge
 
@@ -15,14 +15,14 @@
 
 ## 📖 About The Project
 
-**Java Forge** is a structured learning path containing **65 projects** spread across **10 levels**. It starts with Core Java fundamentals and progresses all the way through advanced backend concepts, security, microservices, and DevOps. This repository serves as a practical guide for developers looking to master the Java ecosystem through hands-on project building.
+**Java Forge** is a structured learning path containing **55 projects across 9 levels**, followed by a single Level 10 capstone to build a full-stack application from scratch. It starts with Core Java fundamentals and progresses through advanced backend concepts, security, microservices, and DevOps, preparing learners to combine those skills in a portfolio project.
 
 ## ✨ Features
 
-- **Structured Learning Path:** 10 distinct levels, starting from Core Java up to DevOps.
+- **Structured Learning Path:** 9 learning levels, followed by one build-your-own capstone project.
 - **Progressive Difficulty:** Projects scale in complexity to systematically challenge your skills.
 - **Modern Tech Stack:** Utilizes Java 17+, Spring Boot 3, Spring Data JPA, Docker, Redis, and more.
-- **Real-World Scenarios:** Includes resume-worthy projects like E-Commerce backends, payment services, and Microservices architectures.
+- **Real-World Scenarios:** Includes projects covering payment services and microservices architectures.
 - **Best Practices:** Emphasizes clean code, SOLID principles, design patterns, and layered architecture.
 
 ## 🛠️ Prerequisites
@@ -59,73 +59,66 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 
 ## 🗂️ Project Overview
 
-| No | Level | Project | Tech Stack / Difficulty | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| 01 | 1 - Core Java | [Student Management](01-Student-Management/) | Classes, Objects | ✅ |
-| 02 | 1 - Core Java | [Library Management](02-Library-Management/) | OOP | ✅ |
-| 03 | 1 - Core Java | [Bank Account Simulator](03-Bank-Account-Simulator/) | Inheritance | ✅ |
-| 04 | 1 - Core Java | [Expense Tracker](04-Expense-Tracker/) | Collections | ✅ |
-| 05 | 1 - Core Java | [Employee Payroll](05-Employee-Payroll/) | Interfaces | ✅ |
-| 06 | 1 - Core Java | [Quiz Application](06-Quiz-Application/) | File Handling | ✅ |
-| 07 | 1 - Core Java | [Contact Book](07-Contact-Book/) | HashMap | ✅ |
-| 08 | 1 - Core Java | [ATM Simulator](08-ATM-Simulator/) | Exception Handling | ✅ |
-| 09 | 2 - Java Intermediate | [Employee Analytics](09-Employee-Analytics/) | Streams | ✅ |
-| 10 | 2 - Java Intermediate | [Inventory Manager](10-Inventory-Manager/) | Generics | ✅ |
-| 11 | 2 - Java Intermediate | [Log Parser](11-Log-Parser/) | File Processing | ✅ |
-| 12 | 2 - Java Intermediate | [Student Ranking System](12-Student-Ranking-System/) | Comparator | ✅ |
-| 13 | 2 - Java Intermediate | [Cache Simulator](13-Cache-Simulator/) | LRU Cache | ✅ |
-| 14 | 2 - Java Intermediate | [Producer Consumer](14-Producer-Consumer/) | Threads | ✅ |
-| 15 | 2 - Java Intermediate | [Chat Server](15-Chat-Server/) | Sockets | ✅ |
-| 16 | 2 - Java Intermediate | [URL Shortener](16-URL-Shortener/) | Hashing | ✅ |
-| 17 | 3 - JDBC + SQL | [Employee CRUD](17-Employee-CRUD/) | JDBC | ✅ |
-| 18 | 3 - JDBC + SQL | [Banking System](18-Banking-System/) | Transactions | ✅ |
-| 19 | 3 - JDBC + SQL | [Hospital Management](19-Hospital-Management/) | SQL | ✅ |
-| 20 | 3 - JDBC + SQL | [Railway Reservation](20-Railway-Reservation/) | Joins | ✅ |
-| 21 | 3 - JDBC + SQL | [Expense Tracker DB](21-Expense-Tracker-DB/) | CRUD | ✅ |
-| 22 | 3 - JDBC + SQL | [Inventory Database](22-Inventory-Database/) | Normalization | ✅ |
-| 23 | 4 - Spring Boot Basics | [Todo REST API](23-Todo-REST-API/) | REST | ✅ |
-| 24 | 4 - Spring Boot Basics | [Notes API](24-Notes-API/) | CRUD | ✅ |
-| 25 | 4 - Spring Boot Basics | [Student API](25-Student-API/) | Validation | ✅ |
-| 26 | 4 - Spring Boot Basics | [Book Store API](26-Book-Store-API/) | Layered Architecture | ✅ |
-| 27 | 4 - Spring Boot Basics | [Movie Review API](27-Movie-Review-API/) | Pagination | ✅ |
-| 28 | 4 - Spring Boot Basics | [Weather API](28-Weather-API/) | External APIs | ✅ |
-| 29 | 5 - Spring Data JPA | [Employee Management](29-Employee-Management/) | JPA | ✅ |
-| 30 | 5 - Spring Data JPA | [Blog API](30-Blog-API/) | Relationships | ✅ |
-| 31 | 5 - Spring Data JPA | [Library API](31-Library-API/) | One-To-Many | ✅ |
-| 32 | 5 - Spring Data JPA | [Hospital API](32-Hospital-API/) | Many-To-Many | ✅ |
-| 33 | 5 - Spring Data JPA | [School Management](33-School-Management/) | Hibernate | ✅ |
-| 34 | 6 - Security | [JWT Authentication](34-JWT-Authentication/) | JWT | ✅ |
-| 35 | 6 - Security | [Role Based Access](35-Role-Based-Access/) | RBAC | ✅ |
-| 36 | 6 - Security | [OAuth Login](36-OAuth-Login/) | OAuth2 | ✅ |
-| 37 | 6 - Security | [Refresh Token](37-Refresh-Token/) | Token Rotation | ✅ |
-| 38 | 7 - Advanced Backend | [URL Shortener](38-URL-Shortener/) | Hashing | ✅ |
-| 39 | 7 - Advanced Backend | [File Storage API](39-File-Storage-API/) | Local Storage | ✅ |
-| 40 | 7 - Advanced Backend | [Email Service](40-Email-Service/) | Java Mail | ✅ |
-| 41 | 7 - Advanced Backend | [Notification Service](41-Notification-Service/) | Async | ✅ |
-| 42 | 7 - Advanced Backend | [Redis Cache Demo](42-Redis-Cache-Demo/) | Redis | ✅ |
-| 43 | 7 - Advanced Backend | [Rate Limiter](43-Rate-Limiter/) | Redis | ✅ |
-| 44 | 8 - Microservices | [Product Service](44-Product-Service/) | REST | ✅ |
-| 45 | 8 - Microservices | [Order Service](45-Order-Service/) | Microservices | ✅ |
-| 46 | 8 - Microservices | [Payment Service](46-Payment-Service/) | Events | ✅ |
-| 47 | 8 - Microservices | [API Gateway](47-API-Gateway/) | Spring Cloud | ✅ |
-| 48 | 8 - Microservices | [Service Discovery](48-Service-Discovery/) | Eureka | ✅ |
-| 49 | 8 - Microservices | [Config Server](49-Config-Server/) | Spring Cloud | ✅ |
-| 50 | 9 - Docker & DevOps | [Dockerize REST API](50-Dockerize-REST-API/) | Docker | ✅ |
-| 51 | 9 - Docker & DevOps | [Docker Compose](51-Docker-Compose/) | Compose | ✅ |
-| 52 | 9 - Docker & DevOps | [CI/CD Pipeline](52-CI-CD-Pipeline/) | GitHub Actions | ✅ |
-| 53 | 9 - Docker & DevOps | [Deploy on AWS](53-Deploy-on-AWS-EC2/) | EC2 | ✅ |
-| 54 | 9 - Docker & DevOps | [Monitoring](54-Monitoring-with-Prometheus/) | Prometheus | ✅ |
-| 55 | 9 - Docker & DevOps | [Logging](55-Logging-with-ELK/) | ELK | ✅ |
-| 56 | 10 - Resume Projects | E-Commerce Backend | ⭐⭐⭐⭐⭐ | ⏳ |
-| 57 | 10 - Resume Projects | Learning Management System | ⭐⭐⭐⭐ | ⏳ |
-| 58 | 10 - Resume Projects | Hotel Reservation System | ⭐⭐⭐⭐ | ⏳ |
-| 59 | 10 - Resume Projects | Task Management Backend | ⭐⭐⭐⭐ | ⏳ |
-| 60 | 10 - Resume Projects | Banking Backend | ⭐⭐⭐⭐⭐ | ⏳ |
-| 61 | 10 - Resume Projects | Online Examination System | ⭐⭐⭐⭐ | ⏳ |
-| 62 | 10 - Resume Projects | Job Portal Backend | ⭐⭐⭐⭐ | ⏳ |
-| 63 | 10 - Resume Projects | Personal Finance Manager | ⭐⭐⭐⭐ | ⏳ |
-| 64 | 10 - Resume Projects | AI Chat Backend | ⭐⭐⭐⭐ | ⏳ |
-| 65 | 10 - Resume Projects | Code Judge Backend | ⭐⭐⭐⭐⭐ | ⏳ |
+| No | Level | Project | Tech Stack / Difficulty |
+| :--- | :--- | :--- | :--- |
+| 01 | 1 - Core Java | [Student Management](01-Student-Management/) | Classes, Objects |
+| 02 | 1 - Core Java | [Library Management](02-Library-Management/) | OOP |
+| 03 | 1 - Core Java | [Bank Account Simulator](03-Bank-Account-Simulator/) | Inheritance |
+| 04 | 1 - Core Java | [Expense Tracker](04-Expense-Tracker/) | Collections |
+| 05 | 1 - Core Java | [Employee Payroll](05-Employee-Payroll/) | Interfaces |
+| 06 | 1 - Core Java | [Quiz Application](06-Quiz-Application/) | File Handling |
+| 07 | 1 - Core Java | [Contact Book](07-Contact-Book/) | HashMap |
+| 08 | 1 - Core Java | [ATM Simulator](08-ATM-Simulator/) | Exception Handling |
+| 09 | 2 - Java Intermediate | [Employee Analytics](09-Employee-Analytics/) | Streams |
+| 10 | 2 - Java Intermediate | [Inventory Manager](10-Inventory-Manager/) | Generics |
+| 11 | 2 - Java Intermediate | [Log Parser](11-Log-Parser/) | File Processing |
+| 12 | 2 - Java Intermediate | [Student Ranking System](12-Student-Ranking-System/) | Comparator |
+| 13 | 2 - Java Intermediate | [Cache Simulator](13-Cache-Simulator/) | LRU Cache |
+| 14 | 2 - Java Intermediate | [Producer Consumer](14-Producer-Consumer/) | Threads |
+| 15 | 2 - Java Intermediate | [Chat Server](15-Chat-Server/) | Sockets |
+| 16 | 2 - Java Intermediate | [URL Shortener](16-URL-Shortener/) | Hashing |
+| 17 | 3 - JDBC + SQL | [Employee CRUD](17-Employee-CRUD/) | JDBC |
+| 18 | 3 - JDBC + SQL | [Banking System](18-Banking-System/) | Transactions |
+| 19 | 3 - JDBC + SQL | [Hospital Management](19-Hospital-Management/) | SQL |
+| 20 | 3 - JDBC + SQL | [Railway Reservation](20-Railway-Reservation/) | Joins |
+| 21 | 3 - JDBC + SQL | [Expense Tracker DB](21-Expense-Tracker-DB/) | CRUD |
+| 22 | 3 - JDBC + SQL | [Inventory Database](22-Inventory-Database/) | Normalization |
+| 23 | 4 - Spring Boot Basics | [Todo REST API](23-Todo-REST-API/) | REST |
+| 24 | 4 - Spring Boot Basics | [Notes API](24-Notes-API/) | CRUD |
+| 25 | 4 - Spring Boot Basics | [Student API](25-Student-API/) | Validation |
+| 26 | 4 - Spring Boot Basics | [Book Store API](26-Book-Store-API/) | Layered Architecture |
+| 27 | 4 - Spring Boot Basics | [Movie Review API](27-Movie-Review-API/) | Pagination |
+| 28 | 4 - Spring Boot Basics | [Weather API](28-Weather-API/) | External APIs |
+| 29 | 5 - Spring Data JPA | [Employee Management](29-Employee-Management/) | JPA |
+| 30 | 5 - Spring Data JPA | [Blog API](30-Blog-API/) | Relationships |
+| 31 | 5 - Spring Data JPA | [Library API](31-Library-API/) | One-To-Many |
+| 32 | 5 - Spring Data JPA | [Hospital API](32-Hospital-API/) | Many-To-Many |
+| 33 | 5 - Spring Data JPA | [School Management](33-School-Management/) | Hibernate |
+| 34 | 6 - Security | [JWT Authentication](34-JWT-Authentication/) | JWT |
+| 35 | 6 - Security | [Role Based Access](35-Role-Based-Access/) | RBAC |
+| 36 | 6 - Security | [OAuth Login](36-OAuth-Login/) | OAuth2 |
+| 37 | 6 - Security | [Refresh Token](37-Refresh-Token/) | Token Rotation |
+| 38 | 7 - Advanced Backend | [URL Shortener](38-URL-Shortener/) | Hashing |
+| 39 | 7 - Advanced Backend | [File Storage API](39-File-Storage-API/) | Local Storage |
+| 40 | 7 - Advanced Backend | [Email Service](40-Email-Service/) | Java Mail |
+| 41 | 7 - Advanced Backend | [Notification Service](41-Notification-Service/) | Async |
+| 42 | 7 - Advanced Backend | [Redis Cache Demo](42-Redis-Cache-Demo/) | Redis |
+| 43 | 7 - Advanced Backend | [Rate Limiter](43-Rate-Limiter/) | Redis |
+| 44 | 8 - Microservices | [Product Service](44-Product-Service/) | REST |
+| 45 | 8 - Microservices | [Order Service](45-Order-Service/) | Microservices |
+| 46 | 8 - Microservices | [Payment Service](46-Payment-Service/) | Events |
+| 47 | 8 - Microservices | [API Gateway](47-API-Gateway/) | Spring Cloud |
+| 48 | 8 - Microservices | [Service Discovery](48-Service-Discovery/) | Eureka |
+| 49 | 8 - Microservices | [Config Server](49-Config-Server/) | Spring Cloud |
+| 50 | 9 - Docker & DevOps | [Dockerize REST API](50-Dockerize-REST-API/) | Docker |
+| 51 | 9 - Docker & DevOps | [Docker Compose](51-Docker-Compose/) | Compose |
+| 52 | 9 - Docker & DevOps | [CI/CD Pipeline](52-CI-CD-Pipeline/) | GitHub Actions |
+| 53 | 9 - Docker & DevOps | [Deploy on AWS](53-Deploy-on-AWS-EC2/) | EC2 |
+| 54 | 9 - Docker & DevOps | [Monitoring](54-Monitoring-with-Prometheus/) | Prometheus |
+| 55 | 9 - Docker & DevOps | [Logging](55-Logging-with-ELK/) | ELK |
+| 56 | 10 - Resume Capstone | Build: Team Project Management Platform | React, Spring Boot, MySQL, JWT/RBAC, Redis, testing, Docker, CI/CD, deployment |
+
+The Level 10 capstone is a project to build after completing the learning path; it is not an implemented project in this repository yet. Start as a modular monolith and bring together the concepts from earlier levels: a full-stack UI, secure REST API, relational data model, role-based team access, task workflows, automated tests, containerization, and deployment.
 
 ## 🤝 Contributing
 
