@@ -1,0 +1,46 @@
+name: Java Forge CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - "level-01-core-java/01-Student-Management"
+          - "level-01-core-java/03-Bank-Account-Simulator"
+          - "level-01-core-java/04-Expense-Tracker"
+          - "level-01-core-java/05-Employee-Payroll"
+          - "level-02-java-intermediate/09-Employee-Analytics"
+          - "level-02-java-intermediate/13-Cache-Simulator"
+          - "level-02-java-intermediate/14-Producer-Consumer"
+          - "level-04-spring-boot-basics/23-Todo-REST-API"
+          - "level-05-spring-data-jpa/29-Employee-Management"
+          - "level-06-security/34-JWT-Authentication"
+          - "level-07-advanced-backend/38-URL-Shortener"
+          - "level-08-microservices/44-Product-Service"
+          - "level-09-docker-devops/50-Dockerize-REST-API"
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build and Test ${{ matrix.project }}
+        run: |
+          if [ -f "${{ matrix.project }}/pom.xml" ]; then
+            mvn clean test -B -f "${{ matrix.project }}/pom.xml"
+          fi
+

@@ -1,29 +1,84 @@
 <div align="center">
   <img src="assets/banner.png" alt="Java Forge Banner" width="100%">
 
-# Java Forge
+# Java Forge 🛠️
 
-**A comprehensive collection of Java projects from Core Java to Microservices and DevOps.**
+**The Complete Hands-On Java Roadmap — 55 Production-Ready Projects from Core Java to Microservices & DevOps.**
 
-[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](#)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](#)
-[![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](#)
+[![Java Forge CI](https://github.com/Aakash02A/Java-Forge/actions/workflows/ci.yml/badge.svg)](https://github.com/Aakash02A/Java-Forge/actions)
+[![GitHub Stars](https://img.shields.io/github/stars/Aakash02A/Java-Forge?style=social)](https://github.com/Aakash02A/Java-Forge/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Aakash02A/Java-Forge?style=social)](https://github.com/Aakash02A/Java-Forge/network/members)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](LICENSE)
+
+<br/>
+
+[![Java 21](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](#)
+[![Spring Boot 3](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](#)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-005C84?style=for-the-badge&logo=mysql&logoColor=white)](#)
+[![Redis](https://img.shields.io/badge/Redis-7.0-DC382D?style=for-the-badge&logo=redis&logoColor=white)](#)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](#)
+[![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](#)
 </div>
+
+---
+
+## 🗺️ Interactive Roadmap
+
+```mermaid
+flowchart TD
+    L1["<b>Level 1: Core Java</b><br/>OOP, Collections, Exceptions"] --> L2["<b>Level 2: Java Intermediate</b><br/>Streams, Generics, Concurrency"]
+    L2 --> L3["<b>Level 3: JDBC & SQL</b><br/>ACID Transactions, Joins"]
+    L3 --> L4["<b>Level 4: Spring Boot Basics</b><br/>REST APIs, Layered Architecture"]
+    L4 --> L5["<b>Level 5: Spring Data JPA</b><br/>Hibernate, Entity Relationships"]
+    L5 --> L6["<b>Level 6: Security & Auth</b><br/>JWT, RBAC, OAuth2"]
+    L6 --> L7["<b>Level 7: Advanced Backend</b><br/>Redis Cache, Rate Limiting, Async"]
+    L7 --> L8["<b>Level 8: Microservices</b><br/>Gateway, Eureka, Config Server"]
+    L8 --> L9["<b>Level 9: Docker & DevOps</b><br/>Compose, CI/CD, AWS, ELK"]
+    L9 --> L10["<b>Level 10: Resume Capstone</b><br/>Full-Stack Project Management Platform"]
+
+    style L1 fill:#E3F2FD,stroke:#1E88E5,stroke-width:2px,color:#0D47A1
+    style L2 fill:#E8F5E9,stroke:#43A047,stroke-width:2px,color:#1B5E20
+    style L3 fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#F57F17
+    style L4 fill:#FFF3E0,stroke:#FB8C00,stroke-width:2px,color:#E65100
+    style L5 fill:#EDE7F6,stroke:#7E57C2,stroke-width:2px,color:#311B92
+    style L6 fill:#FFEBEE,stroke:#E53935,stroke-width:2px,color:#B71C1C
+    style L7 fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px,color:#4A148C
+    style L8 fill:#E0F7FA,stroke:#00ACC1,stroke-width:2px,color:#006064
+    style L9 fill:#ECEFF1,stroke:#546E7A,stroke-width:2px,color:#263238
+    style L10 fill:#FFF8E1,stroke:#FFA000,stroke-width:3px,color:#FF6F00
+```
 
 ---
 
 ## 📖 About The Project
 
-**Java Forge** is a structured learning path containing **55 projects across 9 levels**, followed by a single Level 10 capstone to build a full-stack application from scratch. It starts with Core Java fundamentals and progresses through advanced backend concepts, security, microservices, and DevOps, preparing learners to combine those skills in a portfolio project.
+**Java Forge** is an industry-aligned learning path containing **55 projects organized into 10 progressive levels**. It bridges the gap between basic syntax and enterprise software engineering, guiding you step-by-step from Core Java to Spring Boot 3, Distributed Microservices, and Cloud DevOps.
+
+- 🧭 **Curated Learning Tracks:** Choose between a fast-track interview sprint or full mastery. See [TRACKS.md](TRACKS.md).
+- 📋 **Personal Progress Checklist:** Track your daily/weekly journey with [PROGRESS.md](PROGRESS.md).
+- 🤝 **Open for Contributions:** Beginner-friendly issues, unit test tasks, and challenges. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## ✨ Features
 
-- **Structured Learning Path:** 9 learning levels, followed by one build-your-own capstone project.
-- **Progressive Difficulty:** Projects scale in complexity to systematically challenge your skills.
-- **Modern Tech Stack:** Utilizes Java 17+, Spring Boot 3, Spring Data JPA, Docker, Redis, and more.
-- **Real-World Scenarios:** Includes projects covering payment services and microservices architectures.
-- **Best Practices:** Emphasizes clean code, SOLID principles, design patterns, and layered architecture.
+- **Structured Learning Path:** 10 levels systematically challenging your skills from console apps to cloud microservices.
+- **Enterprise-Grade Stack:** Built with Java 21, Spring Boot 3, Spring Data JPA, Spring Security 6, Redis, Docker, and AWS.
+- **Production Patterns:** Layered architecture, DTO pattern, JWT stateless authentication, token bucket rate limiting, and ELK logging.
+- **Career & Interview Ready:** Directly prepares you for Java Backend and Full-Stack Engineering technical interviews.
+
+## 🧭 Curated Learning Tracks
+
+Choose the track that fits your schedule:
+
+| Track | Target Audience | Duration | Key Levels |
+| :--- | :--- | :--- | :--- |
+| **🚀 Fast-Track Interview Sprint** | Java Backend Job Interview Prep | 2–3 Weeks | Core OOP, Streams, Concurrency, SQL, Spring Boot, JWT, Redis |
+| **🍃 Spring Boot & Cloud Specialist** | Modern Backend & Microservices | 4–6 Weeks | Levels 4 through 8 (REST, JPA, Security, Microservices) |
+| **⚙️ Core Concurrency & Internals** | Deep Language Mechanics & Performance | 3–4 Weeks | Levels 1 & 2 (Generics, LRU Cache, Producer-Consumer, Sockets) |
+| **🐳 DevOps & Observability** | Cloud Deployment & Infrastructure | 2–3 Weeks | Level 9 (Docker, CI/CD, AWS EC2, Prometheus, ELK) |
+| **👑 Full 55-Project Masterclass** | Zero to Senior Engineer Journey | 12 Weeks | Complete Level 1 to 10 linear progression |
+
+👉 **Explore full project breakdowns for each track in [TRACKS.md](TRACKS.md).**
 
 ## 🛠️ Prerequisites
 
@@ -120,15 +175,50 @@ Never commit passwords, API keys, or personal credentials. Database projects tha
 
 The Level 10 capstone is a project to build after completing the learning path; it is not an implemented project in this repository yet. Start as a modular monolith and bring together the concepts from earlier levels: a full-stack UI, secure REST API, relational data model, role-based team access, task workflows, automated tests, containerization, and deployment.
 
-## 🤝 Contributing
+---
 
-Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+## 📈 Track Your Progress
 
-1. Fork the repository
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Take ownership of your learning journey with our interactive checklist. Fork the repo and check off each project as you complete it:
+
+👉 **[Open PROGRESS.md](PROGRESS.md)** to start tracking!
+
+---
+
+## 🤝 Contributing & Good First Issues
+
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**!
+
+We have many beginner-friendly opportunities:
+- 🧪 **Writing Unit Tests:** Add JUnit 5 / Mockito tests to early console projects.
+- 📖 **API Documentation:** Add Swagger UI / OpenAPI docs to Spring Boot APIs.
+- 🚀 **Challenges:** Add new stretch goals and edge-case challenges to project READMEs.
+
+Please check out our **[CONTRIBUTING.md](CONTRIBUTING.md)** for our step-by-step contribution guide, code standards, and PR instructions.
+
+---
+
+## 👥 Contributors
+
+A huge thank you to everyone who has contributed to **Java Forge**!
+
+<a href="https://github.com/Aakash02A/Java-Forge/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Aakash02A/Java-Forge" alt="Contributors" />
+</a>
+
+---
+
+## ⭐ Star History
+
+If you find this repository helpful, please give it a ⭐ **star**! It helps other developers discover this learning path and motivates future improvements.
+
+<div align="center">
+  <a href="https://star-history.com/#Aakash02A/Java-Forge&Date">
+    <img src="https://api.star-history.com/svg?repos=Aakash02A/Java-Forge&type=Date" alt="Star History Chart" width="700">
+  </a>
+</div>
+
+---
 
 ## 📝 License
 
