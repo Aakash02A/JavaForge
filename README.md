@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/banner.png" alt="Java Forge Banner" width="100%">
+  <img src="assets/banner1.png" alt="Java Forge Banner" width="100%">
 
 # Java Forge 🛠️
 
@@ -20,34 +20,6 @@
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](#)
 [![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](#)
 </div>
-
----
-
-## 🗺️ Interactive Roadmap
-
-```mermaid
-flowchart TD
-    L1["<b>Level 1: Core Java</b><br/>OOP, Collections, Exceptions"] --> L2["<b>Level 2: Java Intermediate</b><br/>Streams, Generics, Concurrency"]
-    L2 --> L3["<b>Level 3: JDBC & SQL</b><br/>ACID Transactions, Joins"]
-    L3 --> L4["<b>Level 4: Spring Boot Basics</b><br/>REST APIs, Layered Architecture"]
-    L4 --> L5["<b>Level 5: Spring Data JPA</b><br/>Hibernate, Entity Relationships"]
-    L5 --> L6["<b>Level 6: Security & Auth</b><br/>JWT, RBAC, OAuth2"]
-    L6 --> L7["<b>Level 7: Advanced Backend</b><br/>Redis Cache, Rate Limiting, Async"]
-    L7 --> L8["<b>Level 8: Microservices</b><br/>Gateway, Eureka, Config Server"]
-    L8 --> L9["<b>Level 9: Docker & DevOps</b><br/>Compose, CI/CD, AWS, ELK"]
-    L9 --> L10["<b>Level 10: Resume Capstone</b><br/>Full-Stack Project Management Platform"]
-
-    style L1 fill:#E3F2FD,stroke:#1E88E5,stroke-width:2px,color:#0D47A1
-    style L2 fill:#E8F5E9,stroke:#43A047,stroke-width:2px,color:#1B5E20
-    style L3 fill:#FFF9C4,stroke:#FBC02D,stroke-width:2px,color:#F57F17
-    style L4 fill:#FFF3E0,stroke:#FB8C00,stroke-width:2px,color:#E65100
-    style L5 fill:#EDE7F6,stroke:#7E57C2,stroke-width:2px,color:#311B92
-    style L6 fill:#FFEBEE,stroke:#E53935,stroke-width:2px,color:#B71C1C
-    style L7 fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px,color:#4A148C
-    style L8 fill:#E0F7FA,stroke:#00ACC1,stroke-width:2px,color:#006064
-    style L9 fill:#ECEFF1,stroke:#546E7A,stroke-width:2px,color:#263238
-    style L10 fill:#FFF8E1,stroke:#FFA000,stroke-width:3px,color:#FF6F00
-```
 
 ---
 
