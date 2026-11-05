@@ -5,11 +5,11 @@
 
 **The Complete Hands-On Java Roadmap — 55 Production-Ready Projects from Core Java to Microservices & DevOps.**
 
-[![Java Forge CI](https://github.com/Aakash02A/Java-Forge/actions/workflows/ci.yml/badge.svg)](https://github.com/Aakash02A/Java-Forge/actions)
-[![GitHub Stars](https://img.shields.io/github/stars/Aakash02A/Java-Forge?style=social)](https://github.com/Aakash02A/Java-Forge/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/Aakash02A/Java-Forge?style=social)](https://github.com/Aakash02A/Java-Forge/network/members)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](LICENSE)
+[![Java 21](https://img.shields.io/badge/Java-21-ED8B00?style=flat&logo=openjdk&logoColor=white)](#)
+[![Spring Boot 3](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=flat&logo=spring-boot&logoColor=white)](#)
+[![Projects](https://img.shields.io/badge/Projects-55%20Completed-blue?style=flat)](#-project-overview)
 
 <br/>
 
@@ -200,23 +200,29 @@ Please check out our **[CONTRIBUTING.md](CONTRIBUTING.md)** for our step-by-step
 
 ## 👥 Contributors
 
-A huge thank you to everyone who has contributed to **Java Forge**!
+Contributions make this project thrive! Want to see your profile listed here?
 
-<a href="https://github.com/Aakash02A/Java-Forge/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Aakash02A/Java-Forge" alt="Contributors" />
-</a>
+1. Pick up any task or challenge from **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+2. Submit a pull request!
+3. All contributors are credited and celebrated.
+
+<p align="left">
+  <a href="https://github.com/Aakash02A/Java-Forge/graphs/contributors">
+    <img src="https://img.shields.io/badge/All_Contributors-Welcome_&_Celebrated-blue?style=for-the-badge&logo=github" alt="All Contributors" />
+  </a>
+</p>
 
 ---
 
-## ⭐ Star History
+## ⭐ Show Your Support
 
-If you find this repository helpful, please give it a ⭐ **star**! It helps other developers discover this learning path and motivates future improvements.
+If you find this repository helpful, please consider giving it a ⭐ **star**! It helps other developers discover this learning path and motivates continuous updates and new projects.
 
-<div align="center">
-  <a href="https://star-history.com/#Aakash02A/Java-Forge&Date">
-    <img src="https://api.star-history.com/svg?repos=Aakash02A/Java-Forge&type=Date" alt="Star History Chart" width="700">
+<p align="left">
+  <a href="https://github.com/Aakash02A/Java-Forge/stargazers">
+    <img src="https://img.shields.io/badge/Star_This_Project-⭐_Leave_a_Star-gold?style=for-the-badge" alt="Star Java Forge" />
   </a>
-</div>
+</p>
 
 ---
 
