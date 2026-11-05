@@ -20,3 +20,4 @@ Welcome to **Level 3** of Java Forge! This level bridges Java applications with 
 | [20-Railway-Reservation](20-Railway-Reservation/) | SQL Joins | Ticket booking logic with train schedules and seat allocation |
 | [21-Expense-Tracker-DB](21-Expense-Tracker-DB/) | Persistent CRUD | Full database-backed expense tracking and monthly aggregations |
 | [22-Inventory-Database](22-Inventory-Database/) | Schema Design | Normalized database design with foreign keys and cascade rules |
+

@@ -20,3 +20,4 @@ Welcome to **Level 8** of Java Forge! This level teaches distributed system arch
 | [47-API-Gateway](47-API-Gateway/) | Edge Routing | Single entry point with route matching, rewrite rules, and security |
 | [48-Service-Discovery](48-Service-Discovery/) | Eureka Registry | Dynamic service registry enabling zero-hardcoded service IPs |
 | [49-Config-Server](49-Config-Server/) | Centralized Config | Git-backed environment configuration across all services |
+

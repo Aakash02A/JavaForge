@@ -24,3 +24,4 @@ Welcome to **Level 2** of Java Forge! This level elevates your Core Java skills 
 | [14-Producer-Consumer](14-Producer-Consumer/) | Threads & Locks | Classic concurrency pattern with thread synchronization |
 | [15-Chat-Server](15-Chat-Server/) | Sockets | Multi-client broadcast server using TCP sockets |
 | [16-URL-Shortener](16-URL-Shortener/) | Hashing | Base62 encoding and hash-based link shortening |
+

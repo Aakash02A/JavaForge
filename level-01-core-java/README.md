@@ -22,3 +22,4 @@ Welcome to **Level 1** of Java Forge! This level establishes foundational object
 | [06-Quiz-Application](06-Quiz-Application/) | File Handling | Reading quiz questions from files and grading answers |
 | [07-Contact-Book](07-Contact-Book/) | HashMap | Fast key-value lookups, updates, and indexing |
 | [08-ATM-Simulator](08-ATM-Simulator/) | Exception Handling | Custom exceptions, input validation, and defensive programming |
+

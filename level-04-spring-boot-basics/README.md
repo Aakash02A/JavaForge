@@ -21,3 +21,4 @@ Welcome to **Level 4** of Java Forge! This level introduces the Spring Boot fram
 | [26-Book-Store-API](26-Book-Store-API/) | Service Design | Rich business logic separation with DTO mappings |
 | [27-Movie-Review-API](27-Movie-Review-API/) | Pagination & Sorting | Handling paginated queries with `Pageable` and Sort orders |
 | [28-Weather-API](28-Weather-API/) | External APIs | Fetching, transforming, and serving third-party weather data |
+
